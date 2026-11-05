@@ -18,7 +18,6 @@
   #stage3d{position:fixed;inset:0;touch-action:none}
   #stage3d canvas{width:100%!important;height:100%!important;display:block}
 
-  /* ============ MENU ============ */
   #menu{
     position:fixed;inset:0;z-index:60;display:flex;flex-direction:column;
     align-items:center;justify-content:center;gap:26px;padding:80px 26px 26px;
@@ -38,7 +37,6 @@
     -webkit-mask-image:radial-gradient(circle at 50% 45%,#000 20%,transparent 78%);
   }
 
-  /* top profile bar */
   #topBar{
     position:absolute;top:0;left:0;right:0;z-index:5;
     display:flex;align-items:center;justify-content:space-between;
@@ -78,11 +76,11 @@
   .brand h1 em{font-style:normal;color:#3a9bff}
   .tag{margin-top:10px;font-size:11px;letter-spacing:.42em;text-transform:uppercase;color:#6d8fb2}
 
-  .modes{display:flex;gap:18px;flex-wrap:wrap;justify-content:center;
-    max-width:1080px;width:100%;position:relative;z-index:1}
+  .modes{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;
+    max-width:1120px;width:100%;position:relative;z-index:1}
   .mode{
-    flex:1 1 260px;max-width:340px;cursor:pointer;text-align:left;
-    padding:24px 22px 22px;border-radius:18px;border:1px solid rgba(90,150,215,.24);
+    flex:1 1 240px;max-width:320px;cursor:pointer;text-align:left;
+    padding:22px 20px 20px;border-radius:18px;border:1px solid rgba(90,150,215,.24);
     background:linear-gradient(165deg,rgba(22,38,60,.92),rgba(10,17,28,.94));
     color:#cfe3ff;font-family:inherit;transition:.18s ease;position:relative;overflow:hidden;
   }
@@ -95,9 +93,13 @@
     box-shadow:0 16px 40px -14px rgba(58,155,255,.55),0 0 0 1px rgba(92,182,255,.25);
     outline:none;
   }
+  .mode[data-mode="survival"]:hover{
+    border-color:rgba(255,120,120,.65);
+    box-shadow:0 16px 40px -14px rgba(255,80,80,.5),0 0 0 1px rgba(255,140,120,.25);
+  }
   .mode[data-mode="3d"]:hover{
-    border-color:rgba(255,130,110,.65);
-    box-shadow:0 16px 40px -14px rgba(255,110,90,.5),0 0 0 1px rgba(255,140,120,.25);
+    border-color:rgba(255,150,110,.65);
+    box-shadow:0 16px 40px -14px rgba(255,120,90,.5),0 0 0 1px rgba(255,160,120,.25);
   }
   .mode[data-mode="strat"]:hover{
     border-color:rgba(255,200,80,.6);
@@ -111,12 +113,12 @@
     padding:4px 9px;border-radius:99px;background:rgba(58,155,255,.16);
     border:1px solid rgba(92,182,255,.35);color:#8fc6ff;font-weight:700;
   }
-  .mode[data-mode="3d"] .pill{background:rgba(255,90,90,.14);border-color:rgba(255,120,120,.35);color:#ff9c9c}
+  .mode[data-mode="survival"] .pill{background:rgba(255,90,90,.16);border-color:rgba(255,120,120,.35);color:#ff9c9c}
+  .mode[data-mode="3d"] .pill{background:rgba(255,150,110,.14);border-color:rgba(255,160,120,.35);color:#ffb0a0}
   .mode[data-mode="strat"] .pill{background:rgba(255,200,80,.14);border-color:rgba(255,210,100,.35);color:#ffd98a}
 
   .foot{font-size:11.5px;letter-spacing:.12em;color:#4e6a86;text-align:center;position:relative;z-index:1}
 
-  /* ============ SHOP MODAL ============ */
   #shopModal{
     position:fixed;inset:0;z-index:78;display:flex;align-items:center;justify-content:center;
     background:rgba(4,6,10,.88);backdrop-filter:blur(8px);padding:20px;
@@ -130,8 +132,7 @@
   }
   .shopHeader{
     display:flex;align-items:center;justify-content:space-between;gap:12px;
-    padding:18px 20px 12px;
-    border-bottom:1px solid rgba(90,150,215,.15);
+    padding:18px 20px 12px;border-bottom:1px solid rgba(90,150,215,.15);
   }
   .shopHeader h2{font-size:14px;font-weight:900;letter-spacing:.3em;color:#eaf4ff}
   #shopCoins{font-size:16px;font-weight:800;color:#ffd76a;flex:1;text-align:right}
@@ -141,15 +142,13 @@
     cursor:pointer;font-size:14px;font-weight:700;
   }
   #shopClose:hover{background:rgba(50,80,120,.9);color:#eaf4ff}
-  .shopTabs{
-    display:flex;gap:2px;padding:12px 12px 0;
-    border-bottom:1px solid rgba(90,150,215,.15);
-  }
+  .shopTabs{display:flex;gap:2px;padding:12px 12px 0;flex-wrap:wrap;
+    border-bottom:1px solid rgba(90,150,215,.15);}
   .shopTab{
-    flex:1;padding:9px 6px;border-radius:8px 8px 0 0;
+    flex:1 1 auto;min-width:60px;padding:9px 4px;border-radius:8px 8px 0 0;
     background:transparent;border:none;cursor:pointer;
-    font-family:inherit;font-size:10.5px;font-weight:700;
-    letter-spacing:.08em;color:#6d8fb2;transition:.15s;
+    font-family:inherit;font-size:10px;font-weight:700;
+    letter-spacing:.06em;color:#6d8fb2;transition:.15s;
   }
   .shopTab:hover{color:#bcd8f5}
   .shopTab.active{
@@ -173,10 +172,7 @@
   .shopItemInfo{flex:1;min-width:0}
   .shopItemInfo h3{font-size:13.5px;font-weight:800;color:#eaf4ff;margin-bottom:3px}
   .shopItemInfo p{font-size:11.5px;color:#8caac8;line-height:1.4}
-  .shopItemPrice{
-    font-size:12.5px;font-weight:800;color:#ffd76a;
-    white-space:nowrap;
-  }
+  .shopItemPrice{font-size:12.5px;font-weight:800;color:#ffd76a;white-space:nowrap;}
   .shopItemBuy{
     padding:8px 15px;border-radius:8px;cursor:pointer;
     font-family:inherit;font-size:10.5px;font-weight:800;
@@ -187,12 +183,10 @@
   .shopItemBuy:hover:not(:disabled){transform:translateY(-1px);filter:brightness(1.1)}
   .shopItemBuy:disabled{background:rgba(40,60,85,.6);color:#5c7a99;cursor:not-allowed}
   .shopItemBuy.owned{background:rgba(60,180,100,.2);color:#7cf7a0;cursor:default}
-  .shopItemBuy.equipped{
-    background:rgba(60,180,100,.35);color:#7cf7a0;
-    border:1px solid rgba(124,247,160,.4);cursor:default;
-  }
+  .shopItemBuy.equipped{background:rgba(60,180,100,.35);color:#7cf7a0;
+    border:1px solid rgba(124,247,160,.4);cursor:default;}
+  .shopItemBuy.maxed{background:rgba(255,215,106,.2);color:#ffd76a;cursor:default}
 
-  /* ============ SETTINGS MODAL ============ */
   #settingsModal{
     position:fixed;inset:0;z-index:80;display:flex;align-items:center;justify-content:center;
     background:rgba(4,6,10,.85);backdrop-filter:blur(6px);padding:20px;
@@ -203,11 +197,8 @@
     box-shadow:0 24px 60px rgba(0,0,0,.6);
   }
   .sModal h2{font-size:15px;font-weight:900;letter-spacing:.3em;color:#eaf4ff;margin-bottom:16px}
-  .sOpt{
-    display:flex;justify-content:space-between;align-items:center;gap:16px;
-    padding:14px 0;border-bottom:1px solid rgba(90,150,215,.15);
-    font-size:13px;color:#bcd8f5;
-  }
+  .sOpt{display:flex;justify-content:space-between;align-items:center;gap:16px;
+    padding:14px 0;border-bottom:1px solid rgba(90,150,215,.15);font-size:13px;color:#bcd8f5;}
   .sOpt:last-of-type{border-bottom:none}
   .sOpt small{display:block;font-size:10.5px;color:#6d8fb2;margin-top:3px}
   .sOpt input[type="checkbox"]{
@@ -222,15 +213,12 @@
   }
   .sOpt input[type="checkbox"]:checked{background:rgba(58,155,255,.45);border-color:rgba(92,182,255,.8)}
   .sOpt input[type="checkbox"]:checked::after{left:23px;background:#8ed4ff;box-shadow:0 0 10px rgba(92,182,255,.8)}
-  #sClose{
-    width:100%;margin-top:20px;padding:13px;border-radius:10px;cursor:pointer;
+  #sClose{width:100%;margin-top:20px;padding:13px;border-radius:10px;cursor:pointer;
     font-family:inherit;font-size:13px;font-weight:800;letter-spacing:.2em;color:#04101f;
     background:linear-gradient(180deg,#5cb6ff,#2a86e0);border:none;
-    box-shadow:0 4px 0 #12508c;transition:.1s;
-  }
+    box-shadow:0 4px 0 #12508c;transition:.1s;}
   #sClose:active{transform:translateY(3px);box-shadow:0 1px 0 #12508c}
 
-  /* ============ BACK ============ */
   #backBtn{
     position:fixed;top:16px;left:16px;z-index:45;
     padding:9px 16px;border-radius:9px;cursor:pointer;font-family:inherit;
@@ -240,7 +228,6 @@
   }
   #backBtn:hover{background:rgba(24,44,70,.95);border-color:rgba(92,182,255,.7);color:#eaf4ff}
 
-  /* ============ TOUCH ============ */
   #touch{position:fixed;inset:0;z-index:30;pointer-events:none}
   #joyBase{
     position:absolute;left:26px;bottom:26px;width:132px;height:132px;
@@ -267,7 +254,6 @@
   }
   #fireBtn.on{transform:scale(.9);box-shadow:0 0 46px rgba(255,90,60,.9),inset 0 -2px 8px rgba(0,0,0,.5)}
 
-  /* ============ 3D HUD ============ */
   #hud3d{position:fixed;inset:0;z-index:20;pointer-events:none}
   #crosshair{position:absolute;left:50%;top:50%;width:26px;height:26px;margin:-13px 0 0 -13px}
   #crosshair::before,#crosshair::after{
@@ -306,7 +292,6 @@
     background:radial-gradient(circle,transparent 42%,rgba(180,20,20,.62) 100%);
   }
 
-  /* ============ END ============ */
   #endScreen{
     position:fixed;inset:0;z-index:55;display:flex;align-items:center;justify-content:center;
     background:radial-gradient(circle at 50% 40%,rgba(30,10,10,.82),rgba(3,4,7,.96));
@@ -316,7 +301,7 @@
   #endTitle{font-size:clamp(38px,8vw,72px);font-weight:900;letter-spacing:.04em;color:#ff6b6b;
     text-shadow:0 0 44px rgba(255,80,80,.6);margin-bottom:10px}
   #endTitle.win{color:#7cf7a0;text-shadow:0 0 44px rgba(80,255,150,.6)}
-  #endSub{color:#9dbbd8;font-size:14px;letter-spacing:.06em;margin-bottom:26px;line-height:1.6}
+  #endSub{color:#9dbbd8;font-size:14px;letter-spacing:.06em;margin-bottom:22px;line-height:1.6}
   #endCoin{
     display:inline-block;margin-bottom:26px;padding:10px 24px;border-radius:10px;
     font-size:22px;font-weight:900;letter-spacing:.06em;
@@ -338,16 +323,16 @@
   }
   #endMenu:hover{color:#bcd8f5}
 
-  /* ============ STRATEGY ============ */
   #stratUI{position:fixed;inset:0;z-index:25}
   #stratCanvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none;cursor:pointer}
   #stratSidebar{
-    position:absolute;top:58px;right:14px;width:276px;
+    position:absolute;top:58px;right:14px;width:296px;
     background:rgba(8,14,24,.93);border:1px solid rgba(90,150,215,.3);
     border-radius:14px;padding:16px;backdrop-filter:blur(10px);
     display:flex;flex-direction:column;gap:10px;
     font-size:12px;color:#cfe3ff;
     box-shadow:0 18px 44px rgba(0,0,0,.5);
+    max-height:calc(100vh - 80px);overflow-y:auto;
   }
   .sHead{font-size:10px;letter-spacing:.3em;color:#6d8fb2;font-weight:800}
   .sStat{display:flex;justify-content:space-between;align-items:center;
@@ -372,14 +357,24 @@
   #sNukeBtn:hover:not(:disabled){background:rgba(170,40,40,.85);border-color:rgba(255,120,120,.8)}
   #sAllyBtn{background:rgba(30,90,50,.5);border-color:rgba(90,200,120,.35)}
   #sAllyBtn:hover:not(:disabled){background:rgba(40,130,70,.8)}
-
+  .sSliderWrap{display:flex;flex-direction:column;gap:4px}
+  .sSliderWrap label{font-size:10px;color:#7fa3c9;letter-spacing:.08em}
+  .sSliderWrap input[type="range"]{width:100%;accent-color:#3a9bff;height:18px;cursor:pointer;}
+  #sRatioVal{color:#8fc6ff;font-weight:800}
+  #sAttackBtn{
+    background:rgba(180,60,40,.7);border-color:rgba(255,120,80,.5);
+    font-size:12px;font-weight:800;padding:11px;
+  }
+  #sAttackBtn:hover:not(:disabled){background:rgba(220,80,50,.9)}
+  .sTroopInfo{display:flex;justify-content:space-between;font-size:11px;color:#7fa3c9}
+  .sTroopInfo b{color:#ffd76a}
   @media (max-width:760px){
     #joyBase{width:118px;height:118px;left:18px;bottom:22px}
     #joyKnob{width:52px;height:52px;margin:-26px 0 0 -26px}
     #fireBtn{width:92px;height:92px;right:22px;bottom:28px}
-    .modes{gap:14px}
-    .mode{padding:20px 18px}
-    #stratSidebar{width:198px;top:52px;right:8px;padding:12px;gap:8px;font-size:11px}
+    .modes{gap:12px}
+    .mode{padding:18px 16px;flex:1 1 200px}
+    #stratSidebar{width:212px;top:52px;right:8px;padding:12px;gap:8px;font-size:11px}
     .sStat b{font-size:13px}
     .sBtn{font-size:10px;padding:7px 4px}
     .sBtn.wide{font-size:9.5px;padding:8px 9px}
@@ -390,6 +385,7 @@
     #coinChip{font-size:11px}
     .topBtn{padding:8px 12px;font-size:10px;letter-spacing:.1em}
     #menu{padding-top:70px}
+    .shopTab{font-size:9px;padding:8px 2px}
   }
 </style>
 </head>
@@ -398,7 +394,6 @@
 <canvas id="game2d" class="hidden"></canvas>
 <div id="stage3d" class="hidden"></div>
 
-<!-- 3D HUD -->
 <div id="hud3d" class="hidden">
   <div id="crosshair"></div>
   <div id="hitmark">✕</div>
@@ -411,21 +406,30 @@
   <div id="vignette"></div>
 </div>
 
-<!-- Touch controls -->
 <div id="touch" class="hidden">
   <div id="joyBase"><div id="joyKnob"></div></div>
   <div id="fireBtn">FIRE</div>
 </div>
 
-<!-- Strategy UI -->
 <div id="stratUI" class="hidden">
   <canvas id="stratCanvas"></canvas>
   <div id="stratSidebar">
-    <div class="sHead">COMMAND</div>
-    <div class="sStat"><span>MONEY</span><b id="sMoney">$250</b></div>
-    <div class="sStat"><span>INCOME</span><b id="sIncome">+$12/s</b></div>
+    <div class="sHead">MILITARY COMMAND</div>
+    <div class="sStat"><span>TROOPS</span><b id="sTroops">0</b></div>
+    <div class="sStat"><span>GROWTH</span><b id="sGrowth">+0.8/s</b></div>
+    <div class="sStat"><span>GOLD</span><b id="sGold">$250</b></div>
     <div class="sStat"><span>CONTROL</span><b id="sControl">0%</b></div>
+    <div class="sStat"><span>FRONTIER</span><b id="sFrontier">Col 1 / 7</b></div>
     <div id="sProvInfo" class="sInfo">Tap a province</div>
+    <div class="sTroopInfo">
+      <span>GARRISON: <b id="sGarrison">–</b></span>
+      <span>DEF: <b id="sDef">x1.0</b></span>
+    </div>
+    <div class="sSliderWrap">
+      <label>ATTACK RATIO <span id="sRatioVal">50%</span></label>
+      <input type="range" id="sRatio" min="10" max="100" value="50" step="5">
+    </div>
+    <button id="sAttackBtn" class="sBtn wide">⚔ INVADE <small id="sAtkPreview">–</small></button>
     <div class="sBuildGrid">
       <button class="sBtn" data-build="city">🏙 City<small>$80</small></button>
       <button class="sBtn" data-build="factory">🏭 Factory<small>$150</small></button>
@@ -433,14 +437,12 @@
       <button class="sBtn" data-build="sam">🛡 SAM<small>$120</small></button>
     </div>
     <button id="sNukeBtn" class="sBtn wide">☢ LAUNCH NUKE <small>$400</small></button>
-    <button id="sCaptureBtn" class="sBtn wide">⚑ CAPTURE <small>$100</small></button>
     <button id="sAllyBtn" class="sBtn wide">🤝 ALLIANCE <small>$300</small></button>
   </div>
 </div>
 
 <button id="backBtn" class="hidden">‹ MENU</button>
 
-<!-- End screen -->
 <div id="endScreen" class="hidden">
   <div class="panel">
     <h1 id="endTitle">K.I.A.</h1>
@@ -452,7 +454,6 @@
   </div>
 </div>
 
-<!-- Shop modal -->
 <div id="shopModal" class="hidden">
   <div class="shopContainer">
     <div class="shopHeader">
@@ -462,6 +463,7 @@
     </div>
     <div class="shopTabs">
       <button class="shopTab active" data-tab="achievements">🏆 Achievements</button>
+      <button class="shopTab" data-tab="upgrades">⚙ Upgrades</button>
       <button class="shopTab" data-tab="territory">🎨 Territory</button>
       <button class="shopTab" data-tab="tanks">🚜 Tanks</button>
       <button class="shopTab" data-tab="profile">👤 Profile</button>
@@ -470,7 +472,6 @@
   </div>
 </div>
 
-<!-- Settings modal -->
 <div id="settingsModal" class="hidden">
   <div class="sModal">
     <h2>SETTINGS</h2>
@@ -486,7 +487,6 @@
   </div>
 </div>
 
-<!-- Main menu -->
 <div id="menu">
   <div id="topBar">
     <div id="profileChip">
@@ -513,21 +513,28 @@
       <span class="pill">TOUCH</span>
       <span class="mIcon">🕹️</span>
       <h2>Mobile Mode</h2>
-      <p>Top-down territory war. Push the front line, paint the map, capture 55% to win. Coin reward on victory.</p>
+      <p>Top-down territory war with allies. Capture 55% of the map to win. Upgrades apply here.</p>
+    </button>
+
+    <button class="mode" data-mode="survival">
+      <span class="pill">SOLO</span>
+      <span class="mIcon">💀</span>
+      <h2>Survival</h2>
+      <p>No team, no respawns — for you or them. Kill every enemy tank to win. Die and it's over.</p>
     </button>
 
     <button class="mode" data-mode="3d">
       <span class="pill">3D</span>
       <span class="mIcon">🪖</span>
       <h2>Soldier Mode</h2>
-      <p>D-Day, Omaha Beach. Storm the sand with allied soldiers and clear the bluff in first-person 3D.</p>
+      <p>D-Day, Omaha Beach. Allied soldiers support you. Clear the bluff in first-person 3D.</p>
     </button>
 
     <button class="mode" data-mode="strat">
       <span class="pill">MAP</span>
       <span class="mIcon">🗺️</span>
       <h2>Strategy Map</h2>
-      <p>Hex-based conquest. Build cities, factories, silos and SAMs. Nukes destroy, they don't conquer.</p>
+      <p>Click any red-bordered province to invade. Track your control &amp; frontier advance.</p>
     </button>
   </div>
 
@@ -539,47 +546,43 @@
 (() => {
 "use strict";
 
-/* ══════════════════════════════════════════════════════════
-   SHARED
-   ══════════════════════════════════════════════════════════ */
 const $ = s => document.querySelector(s);
 const isTouch = window.matchMedia('(pointer: coarse)').matches || ('ontouchstart' in window);
 
-/* ---------- settings ---------- */
+/* ---------------- settings ---------------- */
 const SETTINGS = { joystick: false, sound: true };
 try {
   const saved = JSON.parse(localStorage.getItem('cw_settings') || '{}');
   Object.assign(SETTINGS, saved);
 } catch(e) {}
-function saveSettings(){
-  try { localStorage.setItem('cw_settings', JSON.stringify(SETTINGS)); } catch(e) {}
-}
+function saveSettings(){ try { localStorage.setItem('cw_settings', JSON.stringify(SETTINGS)); } catch(e) {} }
 
-/* ══════════════════════════════════════════════════════════
-   PROFILE / ECONOMY
-   ══════════════════════════════════════════════════════════ */
+/* ---------------- profile ---------------- */
 const DEFAULT_PROFILE = {
-  username: 'Player',
-  coins: 0,
-  achievements: [],
-  ownedTerritorySkins: ['default'],
-  ownedTankSkins: ['default'],
-  activeTerritorySkin: 'default',
-  activeTankSkin: 'default',
+  username: 'Player', coins: 0, achievements: [],
+  ownedTerritorySkins: ['default'], ownedTankSkins: ['default'],
+  activeTerritorySkin: 'default', activeTankSkin: 'default',
+  upgrades: { hp:0, dmg:0, speed:0, fireRate:0 },
 };
-
-let PROFILE = { ...DEFAULT_PROFILE };
+let PROFILE = JSON.parse(JSON.stringify(DEFAULT_PROFILE));
 try {
   const saved = JSON.parse(localStorage.getItem('cw_profile') || '{}');
   PROFILE = { ...DEFAULT_PROFILE, ...saved };
   if (!Array.isArray(PROFILE.achievements)) PROFILE.achievements = [];
   if (!Array.isArray(PROFILE.ownedTerritorySkins)) PROFILE.ownedTerritorySkins = ['default'];
   if (!Array.isArray(PROFILE.ownedTankSkins)) PROFILE.ownedTankSkins = ['default'];
+  if (!PROFILE.upgrades || typeof PROFILE.upgrades !== 'object') {
+    PROFILE.upgrades = { hp:0, dmg:0, speed:0, fireRate:0 };
+  } else {
+    PROFILE.upgrades = {
+      hp: PROFILE.upgrades.hp || 0,
+      dmg: PROFILE.upgrades.dmg || 0,
+      speed: PROFILE.upgrades.speed || 0,
+      fireRate: PROFILE.upgrades.fireRate || 0,
+    };
+  }
 } catch(e) {}
-
-function saveProfile(){
-  try { localStorage.setItem('cw_profile', JSON.stringify(PROFILE)); } catch(e) {}
-}
+function saveProfile(){ try { localStorage.setItem('cw_profile', JSON.stringify(PROFILE)); } catch(e) {} }
 
 const ACHIEVEMENTS = [
   { id: 'firstblood', name: 'First Blood',   desc: '+10% coins from victories',  cost: 50,   coinMult: 0.10 },
@@ -589,6 +592,26 @@ const ACHIEVEMENTS = [
   { id: 'treasury',   name: 'Treasury',      desc: '+50 flat coins per victory', cost: 800,  flatBonus: 50 },
   { id: 'warlord',    name: 'Warlord',       desc: '+60% coins from victories',  cost: 1500, coinMult: 0.60 },
 ];
+
+const UPGRADES = [
+  { id:'hp',       name:'Armor Plating',       desc:'+20 max HP per level',            icon:'🛡',
+    maxLevel:5, costs:[100, 200, 400, 700, 1100] },
+  { id:'dmg',      name:'Weapon Calibration',  desc:'+3 damage per level',             icon:'💥',
+    maxLevel:5, costs:[150, 300, 600, 1000, 1500] },
+  { id:'speed',    name:'Engine Tuning',       desc:'+15 movement speed per level',    icon:'⚡',
+    maxLevel:4, costs:[120, 240, 480, 800] },
+  { id:'fireRate', name:'Trigger Job',         desc:'-0.02s fire cooldown per level',  icon:'🔥',
+    maxLevel:4, costs:[200, 400, 800, 1200] },
+];
+
+function upgradeBonus(id){
+  const lvl = PROFILE.upgrades[id] || 0;
+  if (id === 'hp') return lvl * 20;
+  if (id === 'dmg') return lvl * 3;
+  if (id === 'speed') return lvl * 15;
+  if (id === 'fireRate') return lvl * -0.02;
+  return 0;
+}
 
 const TERRITORY_SKINS = [
   { id: 'default', name: 'Blue vs Red',       player: '#3a9bff', enemy: '#ff4d55', price: 0 },
@@ -610,7 +633,6 @@ const TANK_SKINS = [
 
 const USERNAME_COST = 100;
 
-/* ---------- colour helpers ---------- */
 function hexToRgb(hex){
   const h = hex.replace('#','');
   const n = parseInt(h, 16);
@@ -639,18 +661,14 @@ function makeShades(hex){
   }
   return shades;
 }
-
 function getTerritoryPalette(){
   const skin = TERRITORY_SKINS.find(s => s.id === PROFILE.activeTerritorySkin) || TERRITORY_SKINS[0];
   return {
-    player: skin.player,
-    enemy:  skin.enemy,
-    palB:   makeShades(skin.player),
-    palR:   makeShades(skin.enemy),
+    player: skin.player, enemy: skin.enemy,
+    palB: makeShades(skin.player), palR: makeShades(skin.enemy),
   };
 }
 
-/* ---------- coin calc ---------- */
 function computeCoins(base){
   let mult = 1, flat = 0;
   for (const a of ACHIEVEMENTS){
@@ -661,7 +679,6 @@ function computeCoins(base){
   }
   return Math.round(base*mult + flat);
 }
-
 function updateCoinDisplays(){
   const cc = document.getElementById('coinChip');
   if (cc) cc.textContent = '🪙 ' + PROFILE.coins;
@@ -673,7 +690,6 @@ function updateCoinDisplays(){
   if (sc) sc.textContent = '🪙 ' + PROFILE.coins;
 }
 
-/* ---------- logo ---------- */
 const LOGO = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
   <defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1">
     <stop offset="0" stop-color="#8ed4ff"/><stop offset="1" stop-color="#1f6fd0"/>
@@ -687,7 +703,7 @@ const LOGO = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
 $('#logoHolder').innerHTML = LOGO;
 $('#favicon').href = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(LOGO);
 
-/* ---------- audio ---------- */
+/* ---------------- audio ---------------- */
 let actx = null;
 function initAudio(){
   if(!actx){ try { actx = new (window.AudioContext||window.webkitAudioContext)(); } catch(e){} }
@@ -706,7 +722,7 @@ function blip(freq, dur, type='square', vol=0.04, slideTo=null){
   o.start(t); o.stop(t+dur+0.02);
 }
 
-/* ---------- DOM refs ---------- */
+/* ---------------- DOM refs ---------------- */
 const menuEl  = $('#menu');
 const touchEl = $('#touch');
 const backBtn = $('#backBtn');
@@ -718,7 +734,6 @@ const stratUI = $('#stratUI');
 const settingsModal = $('#settingsModal');
 const shopModal = $('#shopModal');
 
-/* ---------- settings UI ---------- */
 const optJoystick = $('#optJoystick');
 const optSound    = $('#optSound');
 optJoystick.checked = SETTINGS.joystick;
@@ -729,11 +744,10 @@ $('#settingsBtn').addEventListener('click', ()=>{ initAudio(); settingsModal.cla
 $('#sClose').addEventListener('click', ()=> settingsModal.classList.add('hidden'));
 
 function applyTouchVisibility(){
-  const show = SETTINGS.joystick && (mode === '2d' || mode === '3d');
+  const show = SETTINGS.joystick && (mode === '2d' || mode === 'survival' || mode === '3d');
   touchEl.classList.toggle('hidden', !show);
 }
 
-/* ---------- end screen ---------- */
 let retryFn = null;
 function showEnd(title, sub, win, retry, coinBase){
   coinBase = coinBase || 0;
@@ -754,18 +768,11 @@ function showEnd(title, sub, win, retry, coinBase){
   retryFn = retry;
   endEl.classList.remove('hidden');
 }
-$('#endBtn').addEventListener('click', ()=>{
-  endEl.classList.add('hidden');
-  if (retryFn) retryFn();
-});
+$('#endBtn').addEventListener('click', ()=>{ endEl.classList.add('hidden'); if (retryFn) retryFn(); });
 $('#endMenu').addEventListener('click', ()=> exitToMenu());
 
-/* ---------- routing ---------- */
 let mode = null;
-
-document.querySelectorAll('.mode').forEach(b=>{
-  b.addEventListener('click', ()=> startMode(b.dataset.mode));
-});
+document.querySelectorAll('.mode').forEach(b=>{ b.addEventListener('click', ()=> startMode(b.dataset.mode)); });
 backBtn.addEventListener('click', exitToMenu);
 
 function exitToMenu(){
@@ -803,69 +810,27 @@ function startMode(m){
   stratUI.classList.add('hidden');
   touchEl.classList.add('hidden');
 
-  if (m === '2d'){
-    cv2.classList.remove('hidden');
-    start2D();
-  } else if (m === '3d'){
-    start3D();
-  } else if (m === 'strat'){
-    stratUI.classList.remove('hidden');
-    startStrategy();
-  }
+  if (m === '2d'){ cv2.classList.remove('hidden'); start2D(false); }
+  else if (m === 'survival'){ cv2.classList.remove('hidden'); start2D(true); }
+  else if (m === '3d'){ start3D(); }
+  else if (m === 'strat'){ stratUI.classList.remove('hidden'); startStrategy(); }
   applyTouchVisibility();
   last = performance.now();
 }
 
-/* ══════════════════════════════════════════════════════════
-   SHOP
-   ══════════════════════════════════════════════════════════ */
+/* ---------------- shop ---------------- */
 let shopTab = 'achievements';
-
-$('#shopBtn').addEventListener('click', ()=>{
-  initAudio();
-  shopModal.classList.remove('hidden');
-  renderShop();
-});
+$('#shopBtn').addEventListener('click', ()=>{ initAudio(); shopModal.classList.remove('hidden'); renderShop(); });
 $('#shopClose').addEventListener('click', ()=> shopModal.classList.add('hidden'));
-
 document.querySelectorAll('.shopTab').forEach(t=>{
-  t.addEventListener('click', ()=>{
-    shopTab = t.dataset.tab;
-    renderShop();
-  });
+  t.addEventListener('click', ()=>{ shopTab = t.dataset.tab; renderShop(); });
 });
-
 function el(tag, className, html){
   const e = document.createElement(tag);
   if (className) e.className = className;
   if (html !== undefined) e.innerHTML = html;
   return e;
 }
-
-function shopItemRow({icon, iconStyle, title, desc, price, owned, equipped, buyLabel, onBuy, onEquip}){
-  const row = el('div','shopItem');
-  const ic = el('div','shopItemIcon', icon || '');
-  if (iconStyle) ic.setAttribute('style', iconStyle);
-  const info = el('div','shopItemInfo', `<h3>${title}</h3><p>${desc}</p>`);
-  row.appendChild(ic);
-  row.appendChild(info);
-
-  if (equipped){
-    row.appendChild(el('button','shopItemBuy equipped','EQUIPPED'));
-  } else if (owned){
-    const b = el('button','shopItemBuy', buyLabel || 'EQUIP');
-    b.addEventListener('click', onEquip);
-    row.appendChild(b);
-  } else {
-    row.appendChild(el('div','shopItemPrice', '🪙 ' + price));
-    const b = el('button','shopItemBuy', 'BUY');
-    if (PROFILE.coins < price) b.disabled = true;
-    b.addEventListener('click', onBuy);
-    row.appendChild(b);
-  }
-  return row;
-}
-
 function renderShop(){
   updateCoinDisplays();
   document.querySelectorAll('.shopTab').forEach(t=>{
@@ -877,94 +842,135 @@ function renderShop(){
   if (shopTab === 'achievements'){
     for (const a of ACHIEVEMENTS){
       const owned = PROFILE.achievements.includes(a.id);
-      const row = shopItemRow({
-        icon: '🏆',
-        title: a.name,
-        desc: a.desc,
-        price: a.cost,
-        owned: false,
-        equipped: owned,
-        onBuy: ()=>{
+      const row = el('div','shopItem');
+      row.appendChild(el('div','shopItemIcon','🏆'));
+      row.appendChild(el('div','shopItemInfo', `<h3>${a.name}</h3><p>${a.desc}</p>`));
+      if (owned) row.appendChild(el('button','shopItemBuy owned','OWNED'));
+      else {
+        row.appendChild(el('div','shopItemPrice','🪙 ' + a.cost));
+        const b = el('button','shopItemBuy','BUY');
+        if (PROFILE.coins < a.cost) b.disabled = true;
+        b.addEventListener('click', ()=>{
           if (PROFILE.coins < a.cost) return;
           PROFILE.coins -= a.cost;
           PROFILE.achievements.push(a.id);
-          saveProfile();
-          renderShop();
+          saveProfile(); renderShop();
           blip(660, 0.15, 'triangle', 0.05);
-        },
-      });
-      if (owned){
-        row.innerHTML = `
-          <div class="shopItemIcon">🏆</div>
-          <div class="shopItemInfo"><h3>${a.name}</h3><p>${a.desc}</p></div>
-          <button class="shopItemBuy owned">OWNED</button>`;
+        });
+        row.appendChild(b);
       }
       body.appendChild(row);
     }
   }
-
+  else if (shopTab === 'upgrades'){
+    const info = el('div','shopItem');
+    info.style.flexDirection = 'column';
+    info.style.alignItems = 'stretch';
+    info.style.gap = '6px';
+    info.innerHTML = `
+      <div style="font-size:13px;font-weight:800;color:#eaf4ff">PERMANENT TANK UPGRADES</div>
+      <p style="font-size:11.5px;color:#8caac8;line-height:1.5">
+        Upgrades apply to your tank in <b style="color:#eaf4ff">Mobile</b> and <b style="color:#eaf4ff">Survival</b> modes.
+        Purchases are permanent and saved to your profile.
+      </p>`;
+    body.appendChild(info);
+    for (const u of UPGRADES){
+      const lvl = PROFILE.upgrades[u.id] || 0;
+      const maxed = lvl >= u.maxLevel;
+      const cost = maxed ? 0 : u.costs[lvl];
+      const canAfford = PROFILE.coins >= cost;
+      const row = el('div','shopItem');
+      row.appendChild(el('div','shopItemIcon', u.icon));
+      row.appendChild(el('div','shopItemInfo',
+        `<h3>${u.name} <span style="color:#ffd76a;font-size:11px;font-weight:900">Lv ${lvl}/${u.maxLevel}</span></h3>
+         <p>${u.desc}</p>`));
+      if (maxed) row.appendChild(el('button','shopItemBuy maxed','MAXED'));
+      else {
+        row.appendChild(el('div','shopItemPrice','🪙 ' + cost));
+        const b = el('button','shopItemBuy','UPGRADE');
+        if (!canAfford) b.disabled = true;
+        b.addEventListener('click', ()=>{
+          if (PROFILE.coins < cost) return;
+          PROFILE.coins -= cost;
+          PROFILE.upgrades[u.id] = lvl + 1;
+          saveProfile(); renderShop();
+          blip(660, 0.15, 'triangle', 0.05);
+        });
+        row.appendChild(b);
+      }
+      body.appendChild(row);
+    }
+  }
   else if (shopTab === 'territory'){
     for (const s of TERRITORY_SKINS){
       const owned = PROFILE.ownedTerritorySkins.includes(s.id);
       const equipped = PROFILE.activeTerritorySkin === s.id;
-      const row = shopItemRow({
-        icon: '',
-        iconStyle: `background:linear-gradient(135deg, ${s.player} 0%, ${s.player} 48%, ${s.enemy} 52%, ${s.enemy} 100%)`,
-        title: s.name,
-        desc: s.price === 0 ? 'Free starter skin' : 'Your territory in Mobile & Strategy modes',
-        price: s.price,
-        owned, equipped,
-        onBuy: ()=>{
+      const row = el('div','shopItem');
+      const ic = el('div','shopItemIcon','');
+      ic.setAttribute('style', `background:linear-gradient(135deg, ${s.player} 0%, ${s.player} 48%, ${s.enemy} 52%, ${s.enemy} 100%)`);
+      row.appendChild(ic);
+      row.appendChild(el('div','shopItemInfo',
+        `<h3>${s.name}</h3><p>${s.price === 0 ? 'Free starter skin' : 'Territory colour in Mobile &amp; Strategy'}</p>`));
+      if (equipped) row.appendChild(el('button','shopItemBuy equipped','EQUIPPED'));
+      else if (owned){
+        const b = el('button','shopItemBuy','EQUIP');
+        b.addEventListener('click', ()=>{
+          PROFILE.activeTerritorySkin = s.id; saveProfile(); renderShop();
+          blip(520, 0.1, 'square', 0.04);
+        });
+        row.appendChild(b);
+      } else {
+        row.appendChild(el('div','shopItemPrice','🪙 ' + s.price));
+        const b = el('button','shopItemBuy','BUY');
+        if (PROFILE.coins < s.price) b.disabled = true;
+        b.addEventListener('click', ()=>{
           if (PROFILE.coins < s.price) return;
           PROFILE.coins -= s.price;
           PROFILE.ownedTerritorySkins.push(s.id);
           PROFILE.activeTerritorySkin = s.id;
-          saveProfile();
-          renderShop();
+          saveProfile(); renderShop();
           blip(660, 0.15, 'triangle', 0.05);
-        },
-        onEquip: ()=>{
-          PROFILE.activeTerritorySkin = s.id;
-          saveProfile();
-          renderShop();
-          blip(520, 0.1, 'square', 0.04);
-        },
-      });
+        });
+        row.appendChild(b);
+      }
       body.appendChild(row);
     }
   }
-
   else if (shopTab === 'tanks'){
     for (const s of TANK_SKINS){
       const owned = PROFILE.ownedTankSkins.includes(s.id);
       const equipped = PROFILE.activeTankSkin === s.id;
-      const row = shopItemRow({
-        icon: '',
-        iconStyle: `background:linear-gradient(135deg, ${s.light}, ${s.main} 55%, ${s.dark})`,
-        title: s.name,
-        desc: s.price === 0 ? 'Free starter skin' : 'Your tank in Mobile Mode',
-        price: s.price,
-        owned, equipped,
-        onBuy: ()=>{
+      const row = el('div','shopItem');
+      const ic = el('div','shopItemIcon','');
+      ic.setAttribute('style', `background:linear-gradient(135deg, ${s.light}, ${s.main} 55%, ${s.dark})`);
+      row.appendChild(ic);
+      row.appendChild(el('div','shopItemInfo',
+        `<h3>${s.name}</h3><p>${s.price === 0 ? 'Free starter skin' : 'Your tank skin in Mobile &amp; Survival'}</p>`));
+      if (equipped) row.appendChild(el('button','shopItemBuy equipped','EQUIPPED'));
+      else if (owned){
+        const b = el('button','shopItemBuy','EQUIP');
+        b.addEventListener('click', ()=>{
+          PROFILE.activeTankSkin = s.id; saveProfile(); renderShop();
+          blip(520, 0.1, 'square', 0.04);
+        });
+        row.appendChild(b);
+      } else {
+        row.appendChild(el('div','shopItemPrice','🪙 ' + s.price));
+        const b = el('button','shopItemBuy','BUY');
+        if (PROFILE.coins < s.price) b.disabled = true;
+        b.addEventListener('click', ()=>{
           if (PROFILE.coins < s.price) return;
           PROFILE.coins -= s.price;
           PROFILE.ownedTankSkins.push(s.id);
           PROFILE.activeTankSkin = s.id;
-          saveProfile();
-          renderShop();
+          saveProfile(); renderShop();
           blip(660, 0.15, 'triangle', 0.05);
-        },
-        onEquip: ()=>{
-          PROFILE.activeTankSkin = s.id;
-          saveProfile();
-          renderShop();
-          blip(520, 0.1, 'square', 0.04);
-        },
-      });
+        });
+        row.appendChild(b);
+      }
       body.appendChild(row);
     }
   }
-
   else if (shopTab === 'profile'){
     const wrap = el('div','shopItem');
     wrap.style.flexDirection = 'column';
@@ -988,34 +994,30 @@ function renderShop(){
       <div style="display:flex;justify-content:space-between;font-size:12px;color:#7fa3c9">
         <span>Achievements owned</span><b style="color:#eaf4ff">${PROFILE.achievements.length} / ${ACHIEVEMENTS.length}</b>
       </div>
+      <div style="display:flex;justify-content:space-between;font-size:12px;color:#7fa3c9">
+        <span>Upgrade levels</span><b style="color:#eaf4ff">${Object.values(PROFILE.upgrades).reduce((a,b)=>a+b,0)}</b>
+      </div>
     `;
     body.appendChild(wrap);
-
     wrap.querySelector('#usernameSave').addEventListener('click', ()=>{
       const val = wrap.querySelector('#usernameInput').value.trim();
-      if (!val) return;
-      if (val === PROFILE.username) return;
+      if (!val || val === PROFILE.username) return;
       if (PROFILE.coins < USERNAME_COST) return;
       PROFILE.coins -= USERNAME_COST;
       PROFILE.username = val.slice(0, 16);
-      saveProfile();
-      renderShop();
+      saveProfile(); renderShop();
       blip(660, 0.15, 'triangle', 0.05);
     });
   }
 }
-
 updateCoinDisplays();
 
-/* ══════════════════════════════════════════════════════════
-   TOUCH CONTROLS
-   ══════════════════════════════════════════════════════════ */
+/* ---------------- touch controls ---------------- */
 const joyBase = $('#joyBase');
 const joyKnob = $('#joyKnob');
 const fireBtn = $('#fireBtn');
 const joy = { active:false, id:null, x:0, y:0, cx:0, cy:0 };
 const fire = { held:false };
-
 function resetJoy(){
   joy.active = false; joy.id = null; joy.x = 0; joy.y = 0;
   joyKnob.style.transform = 'translate(0px,0px)';
@@ -1033,8 +1035,7 @@ joyBase.addEventListener('pointerdown', e=>{
   e.preventDefault(); initAudio();
   try { joyBase.setPointerCapture(e.pointerId); } catch(_) {}
   const r = joyBase.getBoundingClientRect();
-  joy.cx = r.left + r.width/2;
-  joy.cy = r.top + r.height/2;
+  joy.cx = r.left + r.width/2; joy.cy = r.top + r.height/2;
   joy.active = true; joy.id = e.pointerId;
   moveJoy(e.clientX, e.clientY);
 });
@@ -1055,12 +1056,11 @@ fireBtn.addEventListener('pointerdown', e=>{
 });
 
 /* ══════════════════════════════════════════════════════════
-   2D — MOBILE MODE
+   2D — MOBILE + SURVIVAL
    ══════════════════════════════════════════════════════════ */
 const cx2 = cv2.getContext('2d');
 let W2 = 0, H2 = 0;
 const DPR = Math.min(window.devicePixelRatio || 1, 2);
-
 function resize2D(){
   W2 = window.innerWidth; H2 = window.innerHeight;
   cv2.width  = Math.floor(W2*DPR);
@@ -1086,21 +1086,23 @@ window.addEventListener('keyup', e=>{ keys[e.code] = false; });
 
 const mouse2 = { x:0, y:0, down:false, lastMove:0 };
 cv2.addEventListener('mousemove', e=>{
-  if (mode !== '2d') return;
+  if (mode !== '2d' && mode !== 'survival') return;
   mouse2.x = e.clientX; mouse2.y = e.clientY;
   mouse2.lastMove = performance.now();
 });
-cv2.addEventListener('mousedown', e=>{ if (mode==='2d' && e.button===0){ initAudio(); mouse2.down = true; }});
+cv2.addEventListener('mousedown', e=>{
+  if ((mode==='2d' || mode==='survival') && e.button===0){ initAudio(); mouse2.down = true; }
+});
 window.addEventListener('mouseup', e=>{ if (e.button===0) mouse2.down = false; });
 cv2.addEventListener('contextmenu', e=>e.preventDefault());
 
 const terr = new Float32Array(COLS*ROWS);
-
 const G2 = {
   running:false, time:0, units:[], bullets:[], particles:[],
   player:null, cam:{x:WORLD_W/2, y:WORLD_H/2},
   shake:0, kills:0, score:0,
   redCd:1, blueCd:1, bluePct:0, redPct:0, pctT:0, redTarget:4,
+  mode: 'territory', survival: null,
 };
 let uid2 = 0;
 
@@ -1119,17 +1121,26 @@ function initTerritory(){
 }
 
 function makeUnit(x,y,team,isPlayer){
-  const c = isPlayer
-    ? { hp:150, speed:255, fireRate:0.15, dmg:15, bs:980,  r:17, capR:175 }
-    : { hp:62,  speed:150, fireRate:0.72, dmg:8,  bs:640,  r:15, capR:125 };
+  let c;
+  if (isPlayer){
+    c = {
+      hp: 150 + upgradeBonus('hp'),
+      speed: 255 + upgradeBonus('speed'),
+      fireRate: Math.max(0.06, 0.15 + upgradeBonus('fireRate')),
+      dmg: 15 + upgradeBonus('dmg'),
+      bs: 980, r: 17, capR: 175
+    };
+  } else {
+    c = { hp: 62, speed: 150, fireRate: 0.72, dmg: 8, bs: 640, r: 15, capR: 125 };
+  }
   return {
     id:++uid2, x, y, vx:0, vy:0,
-    ang: isPlayer?0:Math.PI,
-    team, isPlayer,
+    ang: isPlayer?0:Math.PI, team, isPlayer,
     hp:c.hp, maxHp:c.hp, r:c.r, speed:c.speed,
     fireRate:c.fireRate, dmg:c.dmg, bulletSpeed:c.bs, capR:c.capR,
     cool:0, alive:true, respawn:0, hitFlash:0, recoil:0,
     strafe: Math.random()<0.5?1:-1, strafeT:0, wobble:Math.random()*6.28,
+    scoreValue: 100, tier: 1,
   };
 }
 
@@ -1147,8 +1158,7 @@ function burst2(x,y,n,color,speed,life,size){
     const a = Math.random()*6.283, s = speed*(0.25+Math.random()*0.9);
     G2.particles.push({
       x,y, vx:Math.cos(a)*s, vy:Math.sin(a)*s,
-      life: life*(0.6+Math.random()*0.7), maxLife: life,
-      color, size: size*(0.5+Math.random()*0.9),
+      life: life*(0.6+Math.random()*0.7), maxLife: life, color, size: size*(0.5+Math.random()*0.9),
     });
   }
 }
@@ -1178,8 +1188,13 @@ function damage2(u, amount, srcTeam){
     burst2(u.x,u.y,12,'#ffd76a',300,0.5,3);
     G2.shake = Math.min(G2.shake+9, 22);
     blip(160,0.28,'sawtooth',0.05,40);
-    if (u.isPlayer){ u.respawn = 3.0; G2.shake = 26; }
-    else if (srcTeam === BLUE){ G2.kills++; G2.score += 100; }
+    if (u.isPlayer){
+      if (G2.mode === 'survival'){ end2D(false); return; }
+      u.respawn = 3.0; G2.shake = 26;
+    } else {
+      const pts = u.scoreValue || 100;
+      G2.kills++; G2.score += pts;
+    }
   }
 }
 
@@ -1213,11 +1228,9 @@ function updateBot2(u, dt){
     const ang = Math.atan2(target.y-u.y, target.x-u.x);
     u.strafeT -= dt;
     if (u.strafeT <= 0){ u.strafeT = 1.2+Math.random()*1.6; u.strafe *= -1; }
-
     if (best > desired+70){ mx = Math.cos(ang); my = Math.sin(ang); }
     else if (best < desired-90){ mx = -Math.cos(ang); my = -Math.sin(ang); }
     else { mx = Math.cos(ang+1.5708)*u.strafe; my = Math.sin(ang+1.5708)*u.strafe; }
-
     const lead = best/u.bulletSpeed;
     const aim = Math.atan2(target.y+target.vy*lead-u.y, target.x+target.vx*lead-u.x);
     u.ang += angleDiff(u.ang, aim) * Math.min(1, dt*9);
@@ -1247,7 +1260,6 @@ function updatePlayer2(u, dt){
     const l = Math.hypot(dx,dy);
     if (l > 1){ dx/=l; dy/=l; }
   }
-
   const k = 1 - Math.exp(-14*dt);
   u.vx += (dx*u.speed - u.vx)*k;
   u.vy += (dy*u.speed - u.vy)*k;
@@ -1336,16 +1348,71 @@ function updateSpawning2(dt){
   if (G2.blueCd <= 0 && countTeam(BLUE) < 3){ spawnBot(BLUE); G2.blueCd = 2.6; }
 }
 
+function buildSurvivalQueue(){
+  const q = [];
+  const tiers = [
+    { tier:1, hp:55,  dmg:7,  speed:135, score:50  },
+    { tier:2, hp:75,  dmg:9,  speed:150, score:80  },
+    { tier:3, hp:100, dmg:12, speed:170, score:130 },
+    { tier:4, hp:140, dmg:16, speed:195, score:200 },
+  ];
+  for (let t=0; t<4; t++){
+    for (let n=0; n<4; n++) q.push({ ...tiers[t] });
+  }
+  return q;
+}
+
+function spawnSurvivalEnemy(){
+  const s = G2.survival;
+  if (!s || s.queue.length === 0) return;
+  const config = s.queue.shift();
+  const p = G2.player;
+  let x, y, tries = 0;
+  do {
+    x = 100 + Math.random() * (WORLD_W - 200);
+    y = 100 + Math.random() * (WORLD_H - 200);
+    tries++;
+  } while (p && Math.hypot(x-p.x, y-p.y) < 450 && tries < 30);
+  const u = makeUnit(x, y, RED, false);
+  u.hp = config.hp; u.maxHp = config.hp;
+  u.dmg = config.dmg; u.speed = config.speed;
+  u.scoreValue = config.score; u.tier = config.tier;
+  G2.units.push(u);
+  burst2(x, y, 16, '#ff5a5a', 340, 0.6, 5);
+  blip(220, 0.12, 'sawtooth', 0.03, 100);
+}
+
+function updateSurvival(dt){
+  const s = G2.survival;
+  if (!s) return;
+  if (s.queue.length > 0){
+    s.spawnTimer -= dt;
+    if (s.spawnTimer <= 0){
+      s.spawnTimer = 1.8 + Math.random() * 1.2;
+      spawnSurvivalEnemy();
+    }
+  }
+  const enemiesAlive = G2.units.some(u => u.alive && !u.isPlayer);
+  if (s.queue.length === 0 && !enemiesAlive) end2D(true);
+}
+
 function end2D(win){
   if (!G2.running) return;
+  const survivalMode = G2.mode === 'survival';
   G2.running = false;
-  showEnd(
-    win ? 'VICTORY' : 'DEFEAT',
-    win
+  let baseCoins, sub;
+  if (survivalMode){
+    baseCoins = 40 + G2.kills * 15 + Math.floor(G2.score / 100);
+    sub = win
+      ? `All ${G2.kills} enemy tanks destroyed. The field is yours.`
+      : `You destroyed ${G2.kills} enemy tanks before falling.`;
+  } else {
+    baseCoins = 40 + Math.floor(G2.score / 100);
+    sub = win
       ? `You captured ${Math.round(G2.bluePct*100)}% of the map — the front line broke.`
-      : `The enemy captured ${Math.round(G2.redPct*100)}% of the map.`,
-    win, start2D, 40
-  );
+      : `The enemy captured ${Math.round(G2.redPct*100)}% of the map.`;
+  }
+  showEnd(win ? 'VICTORY' : 'DEFEAT', sub, win, () => start2D(survivalMode), baseCoins);
 }
 
 function update2D(dt){
@@ -1383,7 +1450,9 @@ function update2D(dt){
 
   updateBullets2(dt);
   updateCapture2(dt);
-  updateSpawning2(dt);
+
+  if (G2.mode === 'survival') updateSurvival(dt);
+  else updateSpawning2(dt);
 
   for (let i=G2.particles.length-1; i>=0; i--){
     const q = G2.particles[i];
@@ -1415,8 +1484,10 @@ function update2D(dt){
     }
     G2.bluePct = b/terr.length;
     G2.redPct  = r/terr.length;
-    if (G2.bluePct >= WIN_PCT){ end2D(true); return; }
-    if (G2.redPct  >= WIN_PCT){ end2D(false); return; }
+    if (G2.mode === 'territory'){
+      if (G2.bluePct >= WIN_PCT){ end2D(true); return; }
+      if (G2.redPct  >= WIN_PCT){ end2D(false); return; }
+    }
   }
 }
 
@@ -1454,7 +1525,7 @@ function updateMinimap2(){
 }
 
 function render2D(){
-  if (mode !== '2d') return;
+  if (mode !== '2d' && mode !== 'survival') return;
   cx2.fillStyle = '#070a0f';
   cx2.fillRect(0,0,W2,H2);
 
@@ -1561,7 +1632,9 @@ function drawTank2(u, pal){
   } else {
     const base = u.team===BLUE ? pal.player : pal.enemy;
     const shades = makeShades(base);
-    main = shades[4]; dark = shades[1]; light = shades[5];
+    const tierBoost = Math.min(2, (u.tier || 1) - 1);
+    main = shades[Math.min(5, 3 + tierBoost)];
+    dark = shades[1]; light = shades[5];
   }
 
   cx2.save();
@@ -1600,6 +1673,15 @@ function drawTank2(u, pal){
   cx2.beginPath(); cx2.arc(0,0,r*0.60,0,6.2832); cx2.fill();
   cx2.fillStyle = light;
   cx2.beginPath(); cx2.arc(-r*0.12,-r*0.12,r*0.28,0,6.2832); cx2.fill();
+
+  if (!u.isPlayer && u.tier && u.tier > 1){
+    for (let i=0; i<u.tier-1; i++){
+      cx2.fillStyle = '#ffd76a';
+      cx2.beginPath();
+      cx2.arc(-r*0.55 + i*6, -r*0.55, 2, 0, 6.2832);
+      cx2.fill();
+    }
+  }
 
   if (u.hitFlash > 0){
     cx2.globalAlpha = u.hitFlash*0.75;
@@ -1658,9 +1740,19 @@ function drawHUD2(pal){
   cx2.fillText(Math.round(G2.bluePct*100)+'%', barX+8, barY+barH-4);
   cx2.textAlign = 'right'; cx2.fillStyle = '#ffd7d7';
   cx2.fillText(Math.round(G2.redPct*100)+'%', barX+barW-8, barY+barH-4);
-  cx2.textAlign = 'center'; cx2.fillStyle = '#93b2cf';
+
+  cx2.textAlign = 'center';
   cx2.font = '10px "Segoe UI",system-ui,sans-serif';
-  cx2.fillText('CAPTURE 55% TO WIN', W2/2, barY+barH+18);
+  if (G2.mode === 'survival'){
+    const s = G2.survival;
+    const remaining = s ? s.queue.length + G2.units.filter(u => u.alive && !u.isPlayer).length : 0;
+    cx2.fillStyle = '#ff8a8a';
+    cx2.font = 'bold 12px "Segoe UI",system-ui,sans-serif';
+    cx2.fillText(`SOLO SURVIVAL — ${remaining} ENEMIES LEFT`, W2/2, barY+barH+22);
+  } else {
+    cx2.fillStyle = '#93b2cf';
+    cx2.fillText('CAPTURE 55% TO WIN', W2/2, barY+barH+18);
+  }
 
   cx2.textAlign = 'left';
   cx2.font = 'bold 12px "Segoe UI",system-ui,sans-serif';
@@ -1671,6 +1763,13 @@ function drawHUD2(pal){
   cx2.fillText('SCORE', 22, 82);
   cx2.fillStyle = '#ffd76a'; cx2.font = 'bold 20px "Segoe UI",system-ui,sans-serif';
   cx2.fillText(String(G2.score), 22, 104);
+
+  cx2.font = 'bold 10px "Segoe UI",system-ui,sans-serif';
+  cx2.fillStyle = '#6d8fb2';
+  cx2.fillText('TANK', 22, 128);
+  const u = PROFILE.upgrades;
+  cx2.fillStyle = '#8fc6ff';
+  cx2.fillText(`HP Lv${u.hp} · DMG Lv${u.dmg} · SPD Lv${u.speed} · ROF Lv${u.fireRate}`, 22, 144);
 
   const p = G2.player;
   if (p){
@@ -1694,7 +1793,7 @@ function drawHUD2(pal){
     cx2.textAlign = 'left';
     cx2.fillText(Math.ceil(p.alive?p.hp:0)+' / '+p.maxHp, hx+9, hy+13);
 
-    if (!p.alive){
+    if (!p.alive && G2.mode !== 'survival'){
       cx2.textAlign = 'center';
       cx2.fillStyle = '#ff8a8a';
       cx2.font = 'bold 26px "Segoe UI",system-ui,sans-serif';
@@ -1734,20 +1833,25 @@ function drawHUD2(pal){
   roundRect(cx2, mmX-5, mmY-5, MMW+10, MMH+10, 8); cx2.stroke();
 }
 
-function start2D(){
+function start2D(survival){
+  G2.mode = survival ? 'survival' : 'territory';
   resize2D();
   initTerritory();
   G2.time = 0; G2.kills = 0; G2.score = 0; G2.shake = 0;
   G2.units.length = 0; G2.bullets.length = 0; G2.particles.length = 0;
   G2.redCd = 1; G2.blueCd = 1; G2.bluePct = 0; G2.redPct = 0; G2.pctT = 0;
 
+  G2.survival = survival ? { queue: buildSurvivalQueue(), spawnTimer: 2.0, spawned: 0 } : null;
+
   const p = makeUnit(BLUE_BASE.x+80, BLUE_BASE.y, BLUE, true);
   G2.player = p;
   G2.units.push(p);
   G2.cam.x = p.x; G2.cam.y = p.y;
 
-  for (let i=0;i<3;i++) spawnBot(RED);
-  for (let i=0;i<2;i++) spawnBot(BLUE);
+  if (!survival){
+    for (let i=0;i<3;i++) spawnBot(RED);
+    for (let i=0;i<2;i++) spawnBot(BLUE);
+  }
 
   mouse2.down = false;
   updateMinimap2();
@@ -1756,22 +1860,23 @@ function start2D(){
 }
 
 /* ══════════════════════════════════════════════════════════
-   3D — SOLDIER MODE (D-DAY)
+   3D — SOLDIER MODE (enemies spread OUTSIDE bunkers)
    ══════════════════════════════════════════════════════════ */
 let T = null;
-
 const HUD = {
-  hp:    $('#hpBar'),
-  ammo:  $('#ammoNum'),
-  reload:$('#reload3d'),
-  count: $('#objCount'),
-  vign:  $('#vignette'),
-  hit:   $('#hitmark'),
+  hp: $('#hpBar'), ammo: $('#ammoNum'), reload: $('#reload3d'),
+  count: $('#objCount'), vign: $('#vignette'), hit: $('#hitmark'),
 };
 
+// Enemies spread on beach, slope, and just in front of the bunkers (z 218-232)
+// so they are clearly visible — no more hidden inside the grey boxes.
 const ENEMY_SPOTS = [
-  [-118, 232], [-64, 244], [-14, 228], [34, 240], [82, 230],
-  [126, 248], [-168, 262], [-58, 278], [22, 266], [104, 274],
+  // Beach defenders
+  [-180, 65], [-70, 85], [40, 75], [150, 90],
+  // Slope defenders
+  [-130, 170], [-20, 175], [90, 168],
+  // Plateau front (just before bunkers at z≈209)
+  [-200, 200], [-90, 203], [20, 205], [130, 202], [210, 198],
 ];
 
 function groundY(z){
@@ -1782,7 +1887,6 @@ function groundY(z){
 
 function build3D(){
   T = {};
-
   const renderer = new THREE.WebGLRenderer({ antialias:true, powerPreference:'high-performance' });
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
   renderer.setSize(window.innerWidth, window.innerHeight);
@@ -1807,7 +1911,6 @@ function build3D(){
     const cSand  = new THREE.Color(0xcabb8f);
     const cSlope = new THREE.Color(0x94966d);
     const cTop   = new THREE.Color(0x6d7c58);
-
     function quad(a,b,c,d,color){
       const p1 = new THREE.Vector3(...a), p2 = new THREE.Vector3(...b);
       const p3 = new THREE.Vector3(...c), p4 = new THREE.Vector3(...d);
@@ -1820,17 +1923,14 @@ function build3D(){
         col.push(color.r,color.g,color.b);
       }
     }
-
     quad([-460,0,0],[-460,0,150],[460,0,150],[460,0,0], cSand);
     quad([-460,0,150],[-460,20,210],[460,20,210],[460,0,150], cSlope);
     quad([-460,20,210],[-460,20,520],[460,20,520],[460,20,210], cTop);
-
     const geo = new THREE.BufferGeometry();
     geo.setAttribute('position', new THREE.Float32BufferAttribute(pos,3));
     geo.setAttribute('normal',   new THREE.Float32BufferAttribute(nor,3));
     geo.setAttribute('color',    new THREE.Float32BufferAttribute(col,3));
-    const mat = new THREE.MeshLambertMaterial({ vertexColors:true });
-    scene.add(new THREE.Mesh(geo, mat));
+    scene.add(new THREE.Mesh(geo, new THREE.MeshLambertMaterial({ vertexColors:true })));
   })();
 
   const wGeo = new THREE.PlaneGeometry(1500, 780, 48, 24);
@@ -1847,24 +1947,18 @@ function build3D(){
   const boat = new THREE.Group();
   const boatMat = new THREE.MeshLambertMaterial({ color:0x4d5647 });
   const boatDark = new THREE.MeshLambertMaterial({ color:0x363e33 });
-
   const floor = new THREE.Mesh(new THREE.BoxGeometry(7,0.5,14), boatDark);
   floor.position.set(0,0.25,0); boat.add(floor);
-
   const wallL = new THREE.Mesh(new THREE.BoxGeometry(0.5,2.6,14), boatMat);
   wallL.position.set(-3.4,1.3,0); boat.add(wallL);
   const wallR = wallL.clone(); wallR.position.x = 3.4; boat.add(wallR);
-
   const stern = new THREE.Mesh(new THREE.BoxGeometry(7,2.6,0.5), boatMat);
   stern.position.set(0,1.3,7); boat.add(stern);
-
   const rampPivot = new THREE.Group();
   rampPivot.position.set(0,0.5,7);
   const ramp = new THREE.Mesh(new THREE.BoxGeometry(7,4,0.35), boatMat);
-  ramp.position.set(0,2,0);
-  rampPivot.add(ramp);
+  ramp.position.set(0,2,0); rampPivot.add(ramp);
   boat.add(rampPivot);
-
   boat.position.set(0,0,-140);
   scene.add(boat);
   T.boat = boat; T.ramp = rampPivot;
@@ -1898,38 +1992,26 @@ function build3D(){
   const mDark  = new THREE.MeshLambertMaterial({ color:0x2b2f36 });
   const mWood  = new THREE.MeshLambertMaterial({ color:0x6b4a2f });
   const mSteel = new THREE.MeshLambertMaterial({ color:0x565c66 });
-
   const body = new THREE.Mesh(new THREE.BoxGeometry(0.1,0.12,0.62), mDark);
   body.position.set(0,0,-0.1); gun.add(body);
   const barrel = new THREE.Mesh(new THREE.CylinderGeometry(0.028,0.028,0.62,8), mSteel);
-  barrel.rotation.x = Math.PI/2;
-  barrel.position.set(0,0.01,-0.62); gun.add(barrel);
+  barrel.rotation.x = Math.PI/2; barrel.position.set(0,0.01,-0.62); gun.add(barrel);
   const stock = new THREE.Mesh(new THREE.BoxGeometry(0.09,0.11,0.28), mWood);
   stock.position.set(0,-0.03,0.32); gun.add(stock);
   const mag = new THREE.Mesh(new THREE.BoxGeometry(0.06,0.16,0.1), mSteel);
   mag.position.set(0,-0.13,0.02); gun.add(mag);
   const grip = new THREE.Mesh(new THREE.BoxGeometry(0.06,0.16,0.08), mWood);
   grip.position.set(0,-0.12,0.2); grip.rotation.x = 0.3; gun.add(grip);
-
   const flash = new THREE.Mesh(new THREE.SphereGeometry(0.11,6,6),
     new THREE.MeshBasicMaterial({ color:0xffdd88, transparent:true, opacity:0 }));
-  flash.position.set(0,0.01,-0.95);
-  gun.add(flash);
-
-  gun.position.set(0.24,-0.2,-0.42);
-  gun.rotation.y = -0.06;
+  flash.position.set(0,0.01,-0.95); gun.add(flash);
+  gun.position.set(0.24,-0.2,-0.42); gun.rotation.y = -0.06;
   camera.add(gun);
   T.gun = gun; T.flash = flash;
 
-  T.renderer = renderer;
-  T.scene = scene;
-  T.camera = camera;
-  T.enemies = [];
-  T.allies = [];
-  T.tracers = [];
-  T.fx = [];
+  T.renderer = renderer; T.scene = scene; T.camera = camera;
+  T.enemies = []; T.allies = []; T.tracers = []; T.fx = [];
   T.active = false;
-
   T.resize = () => {
     renderer.setSize(window.innerWidth, window.innerHeight);
     camera.aspect = window.innerWidth / window.innerHeight;
@@ -1947,24 +2029,37 @@ function makeSoldier(x, z, isAlly){
 
   const legs = new THREE.Mesh(new THREE.BoxGeometry(0.55,0.9,0.4), uniform);
   legs.position.y = 0.45; g.add(legs);
-
   const torso = new THREE.Mesh(new THREE.BoxGeometry(0.7,0.85,0.45), uniform);
   torso.position.y = 1.35; g.add(torso);
-
   const head = new THREE.Mesh(new THREE.SphereGeometry(0.2,8,6), skin);
   head.position.y = 1.92; g.add(head);
-
   const helm = new THREE.Mesh(
     new THREE.SphereGeometry(0.27,8,6,0,Math.PI*2,0,Math.PI/2), helmetM);
   helm.position.y = 1.96; g.add(helm);
-
   const rifle = new THREE.Mesh(new THREE.BoxGeometry(0.07,0.07,0.95),
     new THREE.MeshLambertMaterial({ color:0x25292b }));
   rifle.position.set(0.32, 1.35, 0.35); g.add(rifle);
 
+  if (!isAlly){
+    const mustache = new THREE.Mesh(
+      new THREE.BoxGeometry(0.26, 0.06, 0.08),
+      new THREE.MeshLambertMaterial({ color: 0x1a1510 }));
+    mustache.position.set(0, 1.83, 0.21); g.add(mustache);
+
+    const patchMat = new THREE.MeshLambertMaterial({ color: 0xcc2222 });
+    const patchL = new THREE.Mesh(new THREE.BoxGeometry(0.12, 0.12, 0.42), patchMat);
+    patchL.position.set(-0.41, 1.55, 0); g.add(patchL);
+    const patchR = patchL.clone(); patchR.position.x = 0.41; g.add(patchR);
+
+    const hairMat = new THREE.MeshLambertMaterial({ color: 0x3a2a1a });
+    const hairMain = new THREE.Mesh(new THREE.BoxGeometry(0.36, 0.14, 0.34), hairMat);
+    hairMain.position.set(0, 2.08, 0); g.add(hairMain);
+    const hairSide = new THREE.Mesh(new THREE.BoxGeometry(0.14, 0.1, 0.3), hairMat);
+    hairSide.position.set(-0.12, 2.13, 0); g.add(hairSide);
+  }
+
   g.position.set(x, groundY(z), z);
   g.rotation.y = Math.PI + (Math.random()-0.5)*0.5;
-
   const hp = isAlly ? 3 : 2;
   g.userData = {
     hp, alive:true,
@@ -1981,33 +2076,26 @@ function tracer3D(from, to, color){
   T.scene.add(line);
   T.tracers.push({ line, life: 0.11, max: 0.11 });
 }
-
 function boom3D(pos, scale, color){
   const mesh = new THREE.Mesh(
     new THREE.SphereGeometry(1, 10, 8),
-    new THREE.MeshBasicMaterial({ color, transparent:true, opacity:0.9 })
-  );
-  mesh.position.copy(pos);
-  mesh.scale.setScalar(scale*0.3);
+    new THREE.MeshBasicMaterial({ color, transparent:true, opacity:0.9 }));
+  mesh.position.copy(pos); mesh.scale.setScalar(scale*0.3);
   T.scene.add(mesh);
   T.fx.push({ mesh, life:0.5, max:0.5, scale });
 }
-
 function sparks3D(pos, color){
   for (let i=0;i<8;i++){
     const m = new THREE.Mesh(
       new THREE.BoxGeometry(0.09,0.09,0.09),
-      new THREE.MeshBasicMaterial({ color, transparent:true })
-    );
-    m.position.copy(pos);
-    T.scene.add(m);
+      new THREE.MeshBasicMaterial({ color, transparent:true }));
+    m.position.copy(pos); T.scene.add(m);
     T.fx.push({
       mesh:m, life:0.3, max:0.3, scale:1,
       vel: new THREE.Vector3((Math.random()-0.5)*9, Math.random()*7, (Math.random()-0.5)*9)
     });
   }
 }
-
 function spawnAllies3D(){
   const S = T;
   for (const a of S.allies) S.scene.remove(a);
@@ -2015,32 +2103,17 @@ function spawnAllies3D(){
   const spots = [[-8, -14], [10, -12], [-20, -10], [18, -16]];
   for (const [x, z] of spots){
     const a = makeSoldier(x, z, true);
-    S.allies.push(a);
-    S.scene.add(a);
+    S.allies.push(a); S.scene.add(a);
   }
 }
-
 function reset3D(){
   const S = T;
-  S.time = 0;
-  S.phase = 'boat';
-  S.boatT = 0;
-  S.hp = 150;
-  S.maxHp = 150;
-  S.alive = true;
-  S.ammo = 8;
-  S.reloading = false;
-  S.reloadT = 0;
-  S.fireCd = 0;
-  S.yaw = Math.PI;
-  S.pitch = -0.02;
-  S.shake = 0;
-  S.hurt = 0;
-  S.recoil = 0;
-  S.gunFlash = 0;
-  S.kills = 0;
-  S.wantFire = false;
-  S.shellT = 2.0;
+  S.time = 0; S.phase = 'boat'; S.boatT = 0;
+  S.hp = 150; S.maxHp = 150; S.alive = true;
+  S.ammo = 8; S.reloading = false; S.reloadT = 0; S.fireCd = 0;
+  S.yaw = Math.PI; S.pitch = -0.02;
+  S.shake = 0; S.hurt = 0; S.recoil = 0; S.gunFlash = 0;
+  S.kills = 0; S.wantFire = false; S.shellT = 2.0;
   S.playerPos = new THREE.Vector3(0, 1.7, 0);
 
   S.boat.position.set(0, 0, -140);
@@ -2051,14 +2124,12 @@ function reset3D(){
   S.enemies = [];
   for (const [x,z] of ENEMY_SPOTS){
     const e = makeSoldier(x, z, false);
-    S.enemies.push(e);
-    S.scene.add(e);
+    S.enemies.push(e); S.scene.add(e);
   }
   S.aliveCount = S.enemies.length;
 
   for (const a of S.allies) S.scene.remove(a);
   S.allies = [];
-
   for (const t of S.tracers) S.scene.remove(t.line);
   S.tracers = [];
   for (const f of S.fx) S.scene.remove(f.mesh);
@@ -2067,7 +2138,6 @@ function reset3D(){
   S.camera.position.set(0, 2.0, -138);
   S.gun.visible = false;
   updateHUD3D();
-
   endEl.classList.add('hidden');
   S.active = true;
 }
@@ -2081,7 +2151,6 @@ document.addEventListener('pointerlockchange', ()=>{
   mouseLocked = !!c && document.pointerLockElement === c;
 });
 document.addEventListener('pointerlockerror', ()=>{ lockFailed = true; });
-
 window.addEventListener('mousemove', e=>{
   if (mode !== '3d' || !T || !T.active) return;
   if (mouseLocked){
@@ -2090,12 +2159,10 @@ window.addEventListener('mousemove', e=>{
     T.pitch = Math.max(-1.35, Math.min(1.35, T.pitch));
   }
 });
-
 function bind3DInput(){
   const c = cv3();
   if (!c || c.dataset.bound) return;
   c.dataset.bound = '1';
-
   c.addEventListener('click', ()=>{
     if (isTouch || mouseLocked || lockFailed) return;
     if (T && T.phase === 'combat'){
@@ -2103,17 +2170,14 @@ function bind3DInput(){
       if (p && p.catch) p.catch(()=>{ lockFailed = true; });
     }
   });
-
   c.addEventListener('pointerdown', e=>{
     if (mode !== '3d' || !T || !T.active) return;
     initAudio();
     if (e.pointerType === 'mouse' && e.button !== 0) return;
-    dragLook = true;
-    dragPointer = e.pointerId;
+    dragLook = true; dragPointer = e.pointerId;
     T.wantFire = true;
     try { c.setPointerCapture(e.pointerId); } catch(_) {}
   });
-
   c.addEventListener('pointermove', e=>{
     if (mode !== '3d' || !T || !T.active) return;
     if (!dragLook || e.pointerId !== dragPointer) return;
@@ -2122,7 +2186,6 @@ function bind3DInput(){
     T.pitch -= e.movementY * 0.0035;
     T.pitch = Math.max(-1.35, Math.min(1.35, T.pitch));
   });
-
   ['pointerup','pointercancel','lostpointercapture'].forEach(ev=>{
     c.addEventListener(ev, e=>{
       if (e.pointerId === dragPointer){ dragLook = false; dragPointer = null; }
@@ -2130,9 +2193,7 @@ function bind3DInput(){
     });
   });
 }
-
-let mouseLockedDown = false;
-let mouseDownNoLock = false;
+let mouseLockedDown = false, mouseDownNoLock = false;
 window.addEventListener('mousedown', e=>{
   if (mode !== '3d' || !T) return;
   if (e.button === 0){
@@ -2147,17 +2208,11 @@ window.addEventListener('mouseup', e=>{
 function playerShoot(){
   const S = T;
   if (S.reloading || S.ammo <= 0 || !S.alive) return;
-
-  S.ammo--;
-  S.fireCd = 0.11;
-  S.gunFlash = 0.055;
-  S.recoil = 1;
+  S.ammo--; S.fireCd = 0.11; S.gunFlash = 0.055; S.recoil = 1;
   S.shake = Math.min(S.shake + 0.55, 2.2);
   blip(220, 0.09, 'square', 0.055, 70);
-
   const origin = S.camera.position.clone();
   const dir = new THREE.Vector3(0,0,-1).applyQuaternion(S.camera.quaternion);
-
   let hit = null, bestT = Infinity;
   for (const e of S.enemies){
     if (!e.userData.alive) continue;
@@ -2168,60 +2223,47 @@ function playerShoot(){
     const closest = origin.clone().add(dir.clone().multiplyScalar(proj));
     if (closest.distanceTo(c) < 1.15 && proj < bestT){ bestT = proj; hit = e; }
   }
-
   const end = hit
     ? hit.position.clone().add(new THREE.Vector3(0,1.3,0))
     : origin.clone().add(dir.clone().multiplyScalar(340));
-
   const muzzle = origin.clone().add(dir.clone().multiplyScalar(1.0))
     .add(new THREE.Vector3(0.2,-0.12,0));
   tracer3D(muzzle, end, 0xffe08a);
-
   if (hit){
     hit.userData.hp--;
     sparks3D(end, 0xff6b4a);
     blip(620, 0.05, 'square', 0.03);
     HUD.hit.classList.add('show');
     setTimeout(()=> HUD.hit.classList.remove('show'), 90);
-
     if (hit.userData.hp <= 0){
       hit.userData.alive = false;
       boom3D(hit.position.clone().add(new THREE.Vector3(0,1.2,0)), 2.4, 0xff8a5a);
       S.scene.remove(hit);
-      S.kills++;
-      S.aliveCount--;
+      S.kills++; S.aliveCount--;
       blip(120, 0.3, 'sawtooth', 0.06, 40);
       updateHUD3D();
       if (S.aliveCount <= 0) win3D();
     }
-  } else {
-    sparks3D(end, 0xcfd6dd);
-  }
-
+  } else sparks3D(end, 0xcfd6dd);
   if (S.ammo <= 0) startReload();
   updateHUD3D();
 }
-
 function startReload(){
   const S = T;
   if (S.reloading) return;
-  S.reloading = true;
-  S.reloadT = 1.5;
+  S.reloading = true; S.reloadT = 1.5;
   blip(300, 0.08, 'triangle', 0.03);
   updateHUD3D();
 }
-
 function hurtPlayer(dmg){
   const S = T;
   if (!S.alive) return;
-  S.hp -= dmg;
-  S.hurt = 1;
+  S.hp -= dmg; S.hurt = 1;
   S.shake = Math.min(S.shake + 2.4, 7);
   blip(90, 0.14, 'sawtooth', 0.045, 55);
   if (S.hp <= 0){ S.hp = 0; S.alive = false; lose3D(); }
   updateHUD3D();
 }
-
 function damageAlly(a, dmg){
   if (!a || !a.userData.alive) return;
   a.userData.hp -= dmg;
@@ -2233,7 +2275,6 @@ function damageAlly(a, dmg){
     blip(120, 0.2, 'sawtooth', 0.04, 60);
   }
 }
-
 function updateHUD3D(){
   const S = T; if (!S) return;
   HUD.hp.style.width = Math.max(0, (S.hp/S.maxHp)*100) + '%';
@@ -2244,14 +2285,12 @@ function updateHUD3D(){
   HUD.reload.classList.toggle('show', S.reloading);
   HUD.count.textContent = Math.max(0, S.aliveCount);
 }
-
 function lose3D(){
   T.active = false;
   if (document.pointerLockElement) document.exitPointerLock();
   HUD.vign.style.opacity = '0';
   showEnd('K.I.A.', 'You fell on the beach. The bluff still holds.', false, reset3D, 0);
 }
-
 function win3D(){
   T.active = false;
   if (document.pointerLockElement) document.exitPointerLock();
@@ -2261,7 +2300,6 @@ function win3D(){
   setTimeout(()=>blip(659,0.14,'square',0.06),120);
   setTimeout(()=>blip(784,0.3,'square',0.06),240);
 }
-
 function updateAlly3D(a, dt, S){
   if (!a.userData.alive) return;
   if (a.position.z < 250){
@@ -2291,8 +2329,7 @@ function updateAlly3D(a, dt, S){
           best.userData.alive = false;
           boom3D(best.position.clone().add(new THREE.Vector3(0,1.2,0)), 2.2, 0xff8a5a);
           S.scene.remove(best);
-          S.aliveCount--;
-          S.kills++;
+          S.aliveCount--; S.kills++;
           updateHUD3D();
           if (S.aliveCount <= 0) win3D();
         }
@@ -2300,7 +2337,6 @@ function updateAlly3D(a, dt, S){
     }
   }
 }
-
 function update3D(dt){
   const S = T;
   if (!S || !S.active) return;
@@ -2335,14 +2371,11 @@ function update3D(dt){
     }
     if (f.life <= 0){ S.scene.remove(f.mesh); f.mesh.geometry.dispose(); f.mesh.material.dispose(); S.fx.splice(i,1); }
   }
-
   if (S.gunFlash > 0){
     S.gunFlash -= dt;
     S.flash.material.opacity = Math.max(0, S.gunFlash/0.055);
     S.flash.scale.setScalar(0.8 + Math.random()*0.6);
-  } else {
-    S.flash.material.opacity = 0;
-  }
+  } else S.flash.material.opacity = 0;
   if (S.recoil > 0) S.recoil = Math.max(0, S.recoil - dt*7);
   S.gun.position.z = -0.42 + S.recoil*0.09;
   S.gun.position.x = 0.24 + Math.sin(S.time*2)*0.004;
@@ -2352,40 +2385,32 @@ function update3D(dt){
     const dur = 7.0;
     const k = Math.min(1, S.boatT/dur);
     const e = 1 - Math.pow(1-k, 3);
-
     S.boat.position.z = -140 + e*126;
     S.boat.position.y = Math.sin(S.time*1.6)*0.14;
     S.boat.rotation.z = Math.sin(S.time*1.1)*0.022;
     S.boat.rotation.x = Math.sin(S.time*0.9)*0.012;
-
     if (S.boatT > 5.0){
       const rk = Math.min(1, (S.boatT-5.0)/1.3);
       S.ramp.rotation.x = rk * Math.PI * 0.5;
     }
-
     S.shellT -= dt;
     if (S.shellT <= 0){
       S.shellT = 0.9 + Math.random()*1.6;
       const p = new THREE.Vector3(
-        (Math.random()-0.5)*90, -0.6,
-        S.boat.position.z + 10 + Math.random()*40
-      );
+        (Math.random()-0.5)*90, -0.6, S.boat.position.z + 10 + Math.random()*40);
       boom3D(p, 6 + Math.random()*5, 0xdfe9f2);
       blip(70, 0.25, 'sawtooth', 0.05, 30);
       S.shake = Math.min(S.shake + 4, 9);
     }
-
     const bob = Math.sin(S.time*2.6)*0.045;
     S.camera.position.set(S.boat.position.x, 2.05 + S.boat.position.y + bob, S.boat.position.z + 1.5);
     S.yaw = Math.PI + Math.sin(S.time*0.55)*0.05;
     S.pitch = -0.03 + Math.sin(S.time*0.8)*0.015;
-
     if (S.boatT > 6.9){
       S.phase = 'combat';
       S.playerPos.set(S.boat.position.x, 0, S.boat.position.z + 8);
       S.gun.visible = true;
-      S.yaw = Math.PI;
-      S.pitch = -0.03;
+      S.yaw = Math.PI; S.pitch = -0.03;
       spawnAllies3D();
     }
   }
@@ -2401,23 +2426,17 @@ function update3D(dt){
       }
       const l = Math.hypot(fwd, str);
       if (l > 1){ fwd /= l; str /= l; }
-
       const SPEED = 7.2;
       const fx = -Math.sin(S.yaw), fz = -Math.cos(S.yaw);
       const rx =  Math.cos(S.yaw), rz = -Math.sin(S.yaw);
-
       S.playerPos.x += (fx*fwd + rx*str) * SPEED * dt;
       S.playerPos.z += (fz*fwd + rz*str) * SPEED * dt;
-
       S.playerPos.x = Math.max(-420, Math.min(420, S.playerPos.x));
       S.playerPos.z = Math.max(-45,  Math.min(340, S.playerPos.z));
-
       const gy = groundY(S.playerPos.z);
       const bob = (l > 0.1) ? Math.sin(S.time*11)*0.035 : 0;
       S.playerPos.y = gy + 1.68 + bob;
-
       S.camera.position.copy(S.playerPos);
-
       S.fireCd -= dt;
       const trigger = S.wantFire || mouseLockedDown || fire.held ||
                       (!isTouch && mouseDownNoLock) || keys.Space;
@@ -2425,21 +2444,15 @@ function update3D(dt){
         if (!S.reloading && S.ammo > 0) playerShoot();
         else if (!S.reloading) startReload();
       }
-
       if (S.reloading){
         S.reloadT -= dt;
-        if (S.reloadT <= 0){
-          S.reloading = false;
-          S.ammo = 8;
-          updateHUD3D();
-        }
+        if (S.reloadT <= 0){ S.reloading = false; S.ammo = 8; updateHUD3D(); }
       }
     } else {
       S.playerPos.y = Math.max(0.55, S.playerPos.y - dt*2.2);
       S.camera.position.copy(S.playerPos);
       S.pitch = Math.max(-1.2, S.pitch - dt*0.9);
     }
-
     for (const a of S.allies) updateAlly3D(a, dt, S);
   }
 
@@ -2455,34 +2468,27 @@ function update3D(dt){
   if (S.phase === 'combat' && S.alive){
     for (const e of S.enemies){
       if (!e.userData.alive) continue;
-
       const targets = [];
       if (S.alive) targets.push({ pos: S.playerPos, isPlayer: true });
       for (const a of S.allies) if (a.userData.alive) targets.push({ pos: a.position, isPlayer: false, ally: a });
       if (!targets.length) continue;
-
       let best = null, bd = Infinity;
       for (const t of targets){
         const d = e.position.distanceTo(t.pos);
         if (d < bd){ bd = d; best = t; }
       }
       if (!best) continue;
-
       e.lookAt(best.pos.x, e.position.y, best.pos.z);
       e.rotation.x = 0;
-
       if (bd > 320) continue;
-
       e.userData.fireCd -= dt;
       if (e.userData.fireCd <= 0){
         e.userData.fireCd = 2.0 + Math.random()*2.8;
         const from = e.position.clone().add(new THREE.Vector3(0, 1.55, 0));
         const to = best.pos.clone().add(new THREE.Vector3(
-          (Math.random()-0.5)*3.2, (Math.random()-0.5)*1.4, (Math.random()-0.5)*3.2
-        ));
+          (Math.random()-0.5)*3.2, (Math.random()-0.5)*1.4, (Math.random()-0.5)*3.2));
         tracer3D(from, to, 0xffb347);
         blip(150, 0.05, 'square', 0.015);
-
         const chance = 0.18 * (1 - bd/420);
         if (Math.random() < chance){
           if (best.isPlayer) hurtPlayer(3 + Math.random()*4);
@@ -2496,7 +2502,6 @@ function update3D(dt){
     S.hurt = Math.max(0, S.hurt - dt*2.2);
     HUD.vign.style.opacity = String(S.hurt*0.9);
   }
-
   if (S.phase === 'combat'){
     S.shellT -= dt;
     if (S.shellT <= 0){
@@ -2507,11 +2512,7 @@ function update3D(dt){
     }
   }
 }
-
-function render3D(){
-  if (T && T.renderer) T.renderer.render(T.scene, T.camera);
-}
-
+function render3D(){ if (T && T.renderer) T.renderer.render(T.scene, T.camera); }
 function start3D(){
   stage3d.classList.remove('hidden');
   hud3d.classList.remove('hidden');
@@ -2519,40 +2520,32 @@ function start3D(){
   bind3DInput();
   T.resize();
   reset3D();
-  mouseLockedDown = false;
-  mouseDownNoLock = false;
-  dragLook = false;
-  dragPointer = null;
+  mouseLockedDown = false; mouseDownNoLock = false;
+  dragLook = false; dragPointer = null;
   endEl.classList.add('hidden');
   applyTouchVisibility();
 }
 
 /* ══════════════════════════════════════════════════════════
-   STRATEGY MAP MODE (HEX GRID)
+   STRATEGY MAP — click-to-invade + conquest visuals
    ══════════════════════════════════════════════════════════ */
 const STRAT_COLS = 8, STRAT_ROWS = 6;
 const COST = { city: 80, factory: 150, silo: 250, sam: 120 };
 const COST_NUKE = 400;
-const COST_CAPTURE = 100;
 const COST_ALLY = 300;
+const PLAYER_HOME_COL = 1;
+const ENEMY_HOME_COL = 7;
 
 const STRAT = {
-  provinces: [],
-  layout: null,
-  money: 250,
-  income: 12,
+  provinces: [], layout: null,
+  gold: 250, troops: 50,
+  troopGrowth: 0.8, goldIncome: 5,
   incomeTimer: 0,
-  selected: -1,
-  nukeMode: false,
-  allianceGreen: false,
-  time: 0,
-  running: false,
-  redBuildCd: 10,
-  redNukeCd: 20,
-  greenNukeCd: 12,
-  pendingNukes: [],
-  booms: [],
-  toasts: [],
+  selected: -1, nukeMode: false, allianceGreen: false,
+  time: 0, running: false,
+  redBuildCd: 10, redNukeCd: 20, greenNukeCd: 12,
+  pendingNukes: [], booms: [], toasts: [],
+  attackRatio: 0.5, pulse: 0,
 };
 
 const scv = $('#stratCanvas');
@@ -2560,12 +2553,9 @@ const sctx = scv.getContext('2d');
 let W_S = 0, H_S = 0;
 
 function resizeStrategy(){
-  W_S = window.innerWidth;
-  H_S = window.innerHeight;
-  scv.width = Math.floor(W_S*DPR);
-  scv.height = Math.floor(H_S*DPR);
-  scv.style.width = W_S+'px';
-  scv.style.height = H_S+'px';
+  W_S = window.innerWidth; H_S = window.innerHeight;
+  scv.width = Math.floor(W_S*DPR); scv.height = Math.floor(H_S*DPR);
+  scv.style.width = W_S+'px'; scv.style.height = H_S+'px';
   sctx.setTransform(DPR,0,0,DPR,0,0);
 }
 
@@ -2588,39 +2578,35 @@ function initStrategy(){
   for (let r=0;r<STRAT_ROWS;r++){
     for (let c=0;c<STRAT_COLS;c++){
       STRAT.provinces.push({
-        col:c, row:r, owner:0,
+        col:c, row:r, owner:0, garrison: 10,
         buildings:{ city:0, factory:0, silo:0, sam:0 }
       });
     }
   }
   const set = (c,r,o) => { STRAT.provinces[r*STRAT_COLS+c].owner = o; };
-
-  // Player (1) — left
   set(0,2,1); set(1,2,1); set(0,3,1);
-  // Red (2) — right
   set(7,2,2); set(6,2,2); set(7,3,2);
-  // Green (3) — centre
   set(3,2,3); set(4,2,3); set(3,3,3);
 
-  STRAT.provinces[2*STRAT_COLS+1].buildings.city = 1; // player city
-  STRAT.provinces[2*STRAT_COLS+6].buildings.city = 1; // red city
-  STRAT.provinces[2*STRAT_COLS+7].buildings.silo = 1; // red silo
-  STRAT.provinces[2*STRAT_COLS+3].buildings.city = 1; // green city
-  STRAT.provinces[2*STRAT_COLS+4].buildings.silo = 1; // green silo
+  STRAT.provinces[2*STRAT_COLS+1].buildings.city = 1;
+  STRAT.provinces[2*STRAT_COLS+1].garrison = 20;
+  STRAT.provinces[2*STRAT_COLS+6].buildings.city = 1;
+  STRAT.provinces[2*STRAT_COLS+6].garrison = 30;
+  STRAT.provinces[2*STRAT_COLS+7].buildings.silo = 1;
+  STRAT.provinces[2*STRAT_COLS+7].garrison = 25;
+  STRAT.provinces[2*STRAT_COLS+3].buildings.city = 1;
+  STRAT.provinces[2*STRAT_COLS+3].garrison = 25;
+  STRAT.provinces[2*STRAT_COLS+4].buildings.silo = 1;
+  STRAT.provinces[2*STRAT_COLS+4].garrison = 20;
 
-  STRAT.money = 250;
+  STRAT.gold = 250; STRAT.troops = 50;
   STRAT.selected = 2*STRAT_COLS+1;
-  STRAT.nukeMode = false;
-  STRAT.allianceGreen = false;
-  STRAT.time = 0;
-  STRAT.incomeTimer = 0;
-  STRAT.redBuildCd = 10;
-  STRAT.redNukeCd = 20;
-  STRAT.greenNukeCd = 12;
-  STRAT.pendingNukes = [];
-  STRAT.booms = [];
-  STRAT.toasts = [];
-  recalcIncome();
+  STRAT.nukeMode = false; STRAT.allianceGreen = false;
+  STRAT.time = 0; STRAT.incomeTimer = 0;
+  STRAT.redBuildCd = 10; STRAT.redNukeCd = 20; STRAT.greenNukeCd = 12;
+  STRAT.pendingNukes = []; STRAT.booms = []; STRAT.toasts = [];
+  STRAT.attackRatio = 0.5; STRAT.pulse = 0;
+  recalcGrowth();
 }
 
 function startStrategy(){
@@ -2631,19 +2617,34 @@ function startStrategy(){
   endEl.classList.add('hidden');
 }
 
-function recalcIncome(){
-  let inc = 8;
+function recalcGrowth(){
+  let growth = 0.8, goldInc = 5;
   for (const p of STRAT.provinces){
     if (p.owner === 1){
-      inc += 2 + p.buildings.city*10 + p.buildings.factory*20;
+      growth += p.buildings.city * 0.6;
+      goldInc += p.buildings.factory * 12;
     }
   }
-  STRAT.income = inc;
+  STRAT.troopGrowth = growth;
+  STRAT.goldIncome = goldInc;
 }
 
-function canCapture(p){
-  if (p.owner !== 0) return false;
+function canAttack(p){
+  if (p.owner === 1) return false;
   return hexNeighbors(p.col, p.row).some(n => n.owner === 1);
+}
+
+function computeStats(){
+  let playerCount = 0, redCount = 0, allyCount = 0, neutralCount = 0;
+  let playerMaxCol = 0, enemyMinCol = STRAT_COLS - 1;
+  for (const p of STRAT.provinces){
+    if (p.owner === 1){ playerCount++; if (p.col > playerMaxCol) playerMaxCol = p.col; }
+    else if (p.owner === 2){ redCount++; if (p.col < enemyMinCol) enemyMinCol = p.col; }
+    else if (p.owner === 3) allyCount++;
+    else neutralCount++;
+  }
+  return { playerCount, redCount, allyCount, neutralCount,
+    playerMaxCol, enemyMinCol, total: STRAT.provinces.length };
 }
 
 function addToast(text, color){
@@ -2654,10 +2655,10 @@ function buildStrat(type){
   const p = STRAT.provinces[STRAT.selected];
   if (!p || p.owner !== 1) return;
   const cost = COST[type];
-  if (STRAT.money < cost) return;
-  STRAT.money -= cost;
+  if (STRAT.gold < cost) return;
+  STRAT.gold -= cost;
   p.buildings[type]++;
-  recalcIncome();
+  recalcGrowth();
   updateStratHUD();
   blip(520, 0.08, 'square', 0.04);
 }
@@ -2665,7 +2666,7 @@ function buildStrat(type){
 function startNukeMode(){
   const p = STRAT.provinces[STRAT.selected];
   if (!p || p.owner !== 1 || p.buildings.silo < 1) return;
-  if (STRAT.money < COST_NUKE) return;
+  if (STRAT.gold < COST_NUKE) return;
   STRAT.nukeMode = true;
   updateStratHUD();
   blip(300, 0.1, 'square', 0.04);
@@ -2675,8 +2676,8 @@ function launchPlayerNuke(idx){
   const target = STRAT.provinces[idx];
   if (!target) return;
   if (target.owner === 1 || target.owner === 3) return;
-  if (STRAT.money < COST_NUKE) return;
-  STRAT.money -= COST_NUKE;
+  if (STRAT.gold < COST_NUKE) return;
+  STRAT.gold -= COST_NUKE;
   STRAT.nukeMode = false;
   STRAT.pendingNukes.push({ target, attacker: 1, t: 0.8 });
   addToast('☢ NUKE LAUNCHED', '#ffb347');
@@ -2684,20 +2685,40 @@ function launchPlayerNuke(idx){
   updateStratHUD();
 }
 
-function doCapture(){
+function doAttack(){
   const p = STRAT.provinces[STRAT.selected];
-  if (!p || !canCapture(p) || STRAT.money < COST_CAPTURE) return;
-  STRAT.money -= COST_CAPTURE;
-  p.owner = 1;
-  recalcIncome();
+  if (!p || !canAttack(p)) return;
+  const attacking = Math.floor(STRAT.troops * STRAT.attackRatio);
+  if (attacking <= 0){ addToast('NOT ENOUGH TROOPS', '#ff8a8a'); return; }
+
+  const defender = p.garrison * defenseMultiplier(p);
+  if (attacking > defender){
+    STRAT.troops -= attacking;
+    const remaining = Math.floor(attacking - defender);
+    p.owner = 1;
+    p.garrison = Math.max(1, remaining);
+    addToast('⚔ TERRITORY CAPTURED', '#7cf7a0');
+    blip(440, 0.12, 'square', 0.05);
+  } else {
+    STRAT.troops -= attacking;
+    p.garrison = Math.max(0, Math.floor(p.garrison - attacking / defenseMultiplier(p)));
+    addToast('✖ ATTACK FAILED', '#ff5a5a');
+    blip(150, 0.2, 'sawtooth', 0.05, 60);
+  }
+  recalcGrowth();
   updateStratHUD();
   checkWin();
-  blip(440, 0.1, 'square', 0.04);
+}
+
+function defenseMultiplier(p){
+  let mult = 1;
+  if (p.buildings.sam) mult += 0.35 * p.buildings.sam;
+  return mult;
 }
 
 function doAlliance(){
-  if (STRAT.allianceGreen || STRAT.money < COST_ALLY) return;
-  STRAT.money -= COST_ALLY;
+  if (STRAT.allianceGreen || STRAT.gold < COST_ALLY) return;
+  STRAT.gold -= COST_ALLY;
   STRAT.allianceGreen = true;
   addToast('🤝 ALLIANCE FORMED', '#7cf7a0');
   updateStratHUD();
@@ -2709,7 +2730,6 @@ function queueNuke(target, attacker, delay){
   STRAT.pendingNukes.push({ target, attacker, t: delay });
 }
 
-/* NUKES DESTROY, THEY DON'T CONQUER */
 function resolveNuke(target, attacker){
   const sams = target.buildings.sam;
   const intercept = Math.min(0.8, sams * 0.3);
@@ -2724,10 +2744,11 @@ function resolveNuke(target, attacker){
   target.buildings.factory = 0;
   target.buildings.silo = 0;
   target.buildings.sam = 0;
-  target.owner = 0;   // <-- neutral, not captured
+  target.garrison = Math.floor(target.garrison * 0.3);
+  target.owner = 0;
   addToast('💥 NUKE IMPACT', '#ff5a5a');
   blip(70, 0.4, 'sawtooth', 0.08, 30);
-  recalcIncome();
+  recalcGrowth();
   updateStratHUD();
   checkWin();
 }
@@ -2744,6 +2765,7 @@ function redBuild(){
   if (p.buildings.sam < 1) types.push('sam');
   if (!types.length) return;
   p.buildings[types[Math.floor(Math.random()*types.length)]]++;
+  p.garrison += 5;
 }
 
 function redNuke(){
@@ -2798,44 +2820,42 @@ function endStrategy(win){
 function updateStrategy(dt){
   if (!STRAT.running) return;
   STRAT.time += dt;
+  STRAT.pulse += dt * 4;
+
+  STRAT.troops += STRAT.troopGrowth * dt;
   STRAT.incomeTimer += dt;
   if (STRAT.incomeTimer >= 1){
     STRAT.incomeTimer -= 1;
-    STRAT.money += STRAT.income;
+    STRAT.gold += STRAT.goldIncome;
     updateStratHUD();
+  }
+  for (const p of STRAT.provinces){
+    if (p.owner === 1) p.garrison += 0.05 * dt;
   }
 
   STRAT.redBuildCd -= dt;
   if (STRAT.redBuildCd <= 0){ STRAT.redBuildCd = 7 + Math.random()*4; redBuild(); }
   STRAT.redNukeCd -= dt;
   if (STRAT.redNukeCd <= 0){ STRAT.redNukeCd = 18 + Math.random()*10; redNuke(); }
-
   if (STRAT.allianceGreen){
     STRAT.greenNukeCd -= dt;
     if (STRAT.greenNukeCd <= 0){ STRAT.greenNukeCd = 9 + Math.random()*5; greenNuke(); }
   }
-
   for (let i=STRAT.pendingNukes.length-1; i>=0; i--){
     const n = STRAT.pendingNukes[i];
     n.t -= dt;
-    if (n.t <= 0){
-      resolveNuke(n.target, n.attacker);
-      STRAT.pendingNukes.splice(i,1);
-    }
+    if (n.t <= 0){ resolveNuke(n.target, n.attacker); STRAT.pendingNukes.splice(i,1); }
   }
-
   for (let i=STRAT.booms.length-1; i>=0; i--){
     STRAT.booms[i].t -= dt;
     if (STRAT.booms[i].t <= 0) STRAT.booms.splice(i,1);
   }
-
   for (let i=STRAT.toasts.length-1; i>=0; i--){
     STRAT.toasts[i].life -= dt;
     if (STRAT.toasts[i].life <= 0) STRAT.toasts.splice(i,1);
   }
 }
 
-/* hex helpers */
 function hexCenter(col, row, size, ox, oy){
   const w = Math.sqrt(3) * size;
   const x = ox + col*w + (row % 2)*w/2;
@@ -2863,13 +2883,11 @@ function pointInHex(px, py, cx, cy, size){
   for (let i=0, j=5; i<6; j=i++){
     const [xi,yi] = verts[i];
     const [xj,yj] = verts[j];
-    const intersect = ((yi>py) !== (yj>py)) &&
-      (px < (xj-xi)*(py-yi)/(yj-yi) + xi);
+    const intersect = ((yi>py) !== (yj>py)) && (px < (xj-xi)*(py-yi)/(yj-yi) + xi);
     if (intersect) inside = !inside;
   }
   return inside;
 }
-
 function provinceAt(mx, my){
   const L = STRAT.layout;
   if (!L) return -1;
@@ -2881,6 +2899,7 @@ function provinceAt(mx, my){
   return -1;
 }
 
+/* ---- CLICK-TO-INVADE ---- */
 scv.addEventListener('pointerdown', e=>{
   if (mode !== 'strat' || !STRAT.running) return;
   const rect = scv.getBoundingClientRect();
@@ -2891,21 +2910,35 @@ scv.addEventListener('pointerdown', e=>{
     if (STRAT.nukeMode){ STRAT.nukeMode = false; updateStratHUD(); }
     return;
   }
-  if (STRAT.nukeMode){
-    launchPlayerNuke(idx);
-  } else {
+  if (STRAT.nukeMode){ launchPlayerNuke(idx); return; }
+
+  const p = STRAT.provinces[idx];
+  if (p && canAttack(p)){
+    const attacking = Math.floor(STRAT.troops * STRAT.attackRatio);
+    if (attacking < 1){
+      addToast('NOT ENOUGH TROOPS', '#ff8a8a');
+      STRAT.selected = idx;
+      updateStratHUD();
+      return;
+    }
     STRAT.selected = idx;
-    updateStratHUD();
-    blip(360, 0.04, 'square', 0.02);
+    doAttack();
+    return;
   }
+
+  STRAT.selected = idx;
+  updateStratHUD();
+  blip(360, 0.04, 'square', 0.02);
 });
 
 function updateStratHUD(){
-  $('#sMoney').textContent = '$' + Math.floor(STRAT.money);
-  $('#sIncome').textContent = '+$' + STRAT.income + '/s';
-  let playerP = 0;
-  for (const p of STRAT.provinces) if (p.owner === 1) playerP++;
-  $('#sControl').textContent = Math.round(playerP / STRAT.provinces.length * 100) + '%';
+  $('#sTroops').textContent = Math.floor(STRAT.troops);
+  $('#sGrowth').textContent = '+' + STRAT.troopGrowth.toFixed(1) + '/s';
+  $('#sGold').textContent = '$' + Math.floor(STRAT.gold);
+
+  const stats = computeStats();
+  $('#sControl').textContent = Math.round(stats.playerCount / stats.total * 100) + '%';
+  $('#sFrontier').textContent = `Col ${stats.playerMaxCol} / 7`;
 
   const p = STRAT.provinces[STRAT.selected];
   const info = $('#sProvInfo');
@@ -2920,21 +2953,40 @@ function updateStratHUD(){
     if (b.factory) parts.push(b.factory + ' 🏭');
     if (b.silo) parts.push(b.silo + ' 🚀');
     if (b.sam) parts.push(b.sam + ' 🛡');
-    info.innerHTML = `<b style="color:#eaf4ff">${ownerName}</b><br>${parts.length ? parts.join(' · ') : 'No buildings'}`;
+    const atk = canAttack(p) ? ' <span style="color:#ff8a8a;font-weight:800">· CLICK TO INVADE</span>' : '';
+    info.innerHTML = `<b style="color:#eaf4ff">${ownerName}</b><br>${parts.length ? parts.join(' · ') : 'No buildings'}${atk}`;
+  }
+
+  if (p){
+    $('#sGarrison').textContent = Math.floor(p.garrison);
+    $('#sDef').textContent = 'x' + defenseMultiplier(p).toFixed(1);
+  } else {
+    $('#sGarrison').textContent = '–';
+    $('#sDef').textContent = 'x1.0';
   }
 
   const isMine = p && p.owner === 1;
   document.querySelectorAll('.sBtn[data-build]').forEach(btn=>{
     const type = btn.dataset.build;
-    btn.disabled = !isMine || STRAT.money < COST[type];
+    btn.disabled = !isMine || STRAT.gold < COST[type];
   });
   const nukeBtn = $('#sNukeBtn');
-  nukeBtn.disabled = !isMine || !p.buildings.silo || STRAT.money < COST_NUKE || STRAT.nukeMode;
+  nukeBtn.disabled = !isMine || !p.buildings.silo || STRAT.gold < COST_NUKE || STRAT.nukeMode;
   nukeBtn.innerHTML = (STRAT.nukeMode ? '☢ SELECT TARGET…' : '☢ LAUNCH NUKE') + ' <small>$400</small>';
 
-  $('#sCaptureBtn').disabled = !p || !canCapture(p) || STRAT.money < COST_CAPTURE;
+  const attackBtn = $('#sAttackBtn');
+  const canAtk = p && canAttack(p);
+  attackBtn.disabled = !canAtk;
+  if (canAtk){
+    const preview = Math.floor(STRAT.troops * STRAT.attackRatio);
+    const needed = Math.ceil(p.garrison * defenseMultiplier(p));
+    $('#sAtkPreview').textContent = preview + ' vs ' + needed;
+  } else {
+    $('#sAtkPreview').textContent = '–';
+  }
+
   const allyBtn = $('#sAllyBtn');
-  allyBtn.disabled = STRAT.allianceGreen || STRAT.money < COST_ALLY;
+  allyBtn.disabled = STRAT.allianceGreen || STRAT.gold < COST_ALLY;
   allyBtn.innerHTML = STRAT.allianceGreen ? '🤝 ALLIED' : '🤝 ALLIANCE <small>$300</small>';
 }
 
@@ -2942,8 +2994,15 @@ document.querySelectorAll('.sBtn[data-build]').forEach(btn=>{
   btn.addEventListener('click', ()=> buildStrat(btn.dataset.build));
 });
 $('#sNukeBtn').addEventListener('click', startNukeMode);
-$('#sCaptureBtn').addEventListener('click', doCapture);
+$('#sAttackBtn').addEventListener('click', doAttack);
 $('#sAllyBtn').addEventListener('click', doAlliance);
+
+const ratioSlider = document.getElementById('sRatio');
+ratioSlider.addEventListener('input', ()=>{
+  STRAT.attackRatio = parseInt(ratioSlider.value, 10) / 100;
+  document.getElementById('sRatioVal').textContent = ratioSlider.value + '%';
+  updateStratHUD();
+});
 
 function drawProvinceBuildings(p, cx, cy, size){
   const b = p.buildings;
@@ -2958,19 +3017,15 @@ function drawProvinceBuildings(p, cx, cy, size){
   sctx.font = iconSize + 'px "Segoe UI Emoji","Apple Color Emoji",sans-serif';
   sctx.textAlign = 'center';
   sctx.textBaseline = 'middle';
-
   const spacing = size*0.72;
   const totalWidth = items.length*spacing;
   let startX = cx - totalWidth/2 + spacing/2;
 
   for (const it of items){
-    // shadow
     sctx.fillStyle = 'rgba(0,0,0,0.55)';
     sctx.fillText(it.icon, startX + 1.2, cy + 1.2);
-    // icon
     sctx.fillStyle = '#fff';
     sctx.fillText(it.icon, startX, cy);
-
     if (it.count > 1){
       const bSize = iconSize*0.55;
       sctx.font = 'bold ' + bSize + 'px "Segoe UI",sans-serif';
@@ -2990,7 +3045,6 @@ function renderStrategy(){
 
   sctx.fillStyle = '#070a0f';
   sctx.fillRect(0,0,W,H);
-
   const bgGrad = sctx.createRadialGradient(W*0.5, H*0.4, 20, W*0.5, H*0.4, W*0.7);
   bgGrad.addColorStop(0, 'rgba(20,40,70,0.18)');
   bgGrad.addColorStop(1, 'rgba(4,6,10,0)');
@@ -2998,9 +3052,9 @@ function renderStrategy(){
   sctx.fillRect(0,0,W,H);
 
   const sbw = W > 760 ? 300 : 214;
-  const mapX = 20, mapY = 76;
+  const mapX = 20, mapY = 104;
   const availW = Math.max(180, W - sbw - 40);
-  const availH = Math.max(180, H - 130);
+  const availH = Math.max(180, H - 158);
 
   const hexWperSize = Math.sqrt(3);
   const mapWperSize = STRAT_COLS*hexWperSize + hexWperSize/2;
@@ -3012,10 +3066,9 @@ function renderStrategy(){
   const mapH = ((STRAT_ROWS-1)*1.5 + 2) * size;
   const originX = mapX + (availW - mapW)/2 + hexW/2;
   const originY = mapY + (availH - mapH)/2 + size;
-
   STRAT.layout = { originX, originY, size, hexW };
 
-  // title
+  // ---- Title ----
   sctx.fillStyle = '#7fa3c9';
   sctx.font = 'bold 11px "Segoe UI",system-ui,sans-serif';
   sctx.textAlign = 'left';
@@ -3023,15 +3076,73 @@ function renderStrategy(){
   sctx.fillText('STRATEGIC COMMAND', mapX, 32);
   sctx.fillStyle = '#4e6a86';
   sctx.font = '10px "Segoe UI",system-ui,sans-serif';
-  sctx.fillText('SELECT PROVINCE · BUILD · LAUNCH NUKES', mapX, 50);
+  sctx.fillText('CLICK ANY RED-BORDERED PROVINCE TO INVADE', mapX, 48);
 
-  const pal = getTerritoryPalette();
-  const playerHex = pal.player;
-  const enemyHex  = pal.enemy;
+  // ---- Control bar + frontier bar ----
+  const stats = computeStats();
+  const barW = Math.min(360, availW * 0.55);
+  const barH = 9;
+  const ctrlX = mapX;
+  const ctrlY = 60;
+
+  sctx.fillStyle = 'rgba(8,14,24,0.85)';
+  sctx.fillRect(ctrlX - 2, ctrlY - 2, barW + 4, barH + 4);
+
+  let segX = ctrlX;
+  const segs = [
+    { count: stats.playerCount,  color: palColor('player') },
+    { count: stats.allyCount,    color: '#3a8f5d' },
+    { count: stats.neutralCount, color: '#2a323d' },
+    { count: stats.redCount,     color: palColor('enemy') },
+  ];
+  for (const seg of segs){
+    const w = (seg.count / stats.total) * barW;
+    sctx.fillStyle = seg.color;
+    sctx.fillRect(segX, ctrlY, w, barH);
+    segX += w;
+  }
+  sctx.strokeStyle = 'rgba(90,150,215,0.5)';
+  sctx.lineWidth = 1;
+  sctx.strokeRect(ctrlX - 2, ctrlY - 2, barW + 4, barH + 4);
+
+  const depth = Math.max(0, Math.min(1, (stats.playerMaxCol - PLAYER_HOME_COL) / (ENEMY_HOME_COL - PLAYER_HOME_COL)));
+  const flY = ctrlY + barH + 6;
+  sctx.fillStyle = 'rgba(8,14,24,0.85)';
+  sctx.fillRect(ctrlX, flY, barW, 5);
+  sctx.fillStyle = palColor('player');
+  sctx.fillRect(ctrlX, flY, barW * depth, 5);
+  sctx.fillStyle = palColor('enemy');
+  sctx.fillRect(ctrlX + barW - 3, flY - 2, 3, 9);
+  sctx.strokeStyle = 'rgba(90,150,215,0.5)';
+  sctx.strokeRect(ctrlX, flY, barW, 5);
+
+  sctx.font = 'bold 9.5px "Segoe UI",system-ui,sans-serif';
+  sctx.fillStyle = '#7fa3c9';
+  sctx.textAlign = 'left';
+  const provLeft = STRAT.provinces.filter(p => p.owner === 2).length;
+  sctx.fillText(
+    `CONTROL ${Math.round(stats.playerCount/stats.total*100)}%  ·  FRONTIER COL ${stats.playerMaxCol}/7  ·  ${provLeft} ENEMY PROVINCES LEFT`,
+    ctrlX, flY + 20
+  );
+
+  // ---- Legend for control bar ----
+  sctx.font = 'bold 8.5px "Segoe UI",sans-serif';
+  sctx.textAlign = 'left';
+  let lx = ctrlX;
+  for (const [label,color] of [['YOU',palColor('player')],['ALLY','#3a8f5d'],['NEUTRAL','#2a323d'],['ENEMY',palColor('enemy')]]){
+    sctx.fillStyle = color;
+    sctx.fillRect(lx, flY + 26, 8, 8);
+    sctx.fillStyle = '#7fa3c9';
+    sctx.fillText(label, lx + 12, flY + 34);
+    lx += 12 + sctx.measureText(label).width + 14;
+  }
+
+  // ---- Provinces ----
+  const playerHex = palColor('player');
+  const enemyHex  = palColor('enemy');
   const allyHex   = '#3a8f5d';
   const neutralHex = '#2a323d';
 
-  // Draw hexes
   for (let i=0;i<STRAT.provinces.length;i++){
     const p = STRAT.provinces[i];
     const c = hexCenter(p.col, p.row, size, originX, originY);
@@ -3042,32 +3153,75 @@ function renderStrategy(){
     else if (p.owner === 2) fillColor = enemyHex;
     else fillColor = allyHex;
 
-    // fill
     hexPath(sctx, c.x, c.y, size - 1);
     sctx.fillStyle = fillColor;
     sctx.fill();
 
-    // dark outline
+    // pixel mosaic
+    sctx.save();
+    hexPath(sctx, c.x, c.y, size - 2);
+    sctx.clip();
+    const step = Math.max(4, size * 0.22);
+    for (let py = c.y - size; py < c.y + size; py += step){
+      for (let px = c.x - size; px < c.x + size; px += step){
+        sctx.fillStyle = ((Math.floor(px/step) + Math.floor(py/step)) % 2 === 0)
+          ? 'rgba(255,255,255,0.025)' : 'rgba(0,0,0,0.06)';
+        sctx.fillRect(px, py, step, step);
+      }
+    }
+    sctx.restore();
+
     hexPath(sctx, c.x, c.y, size - 1);
     sctx.strokeStyle = 'rgba(0,0,0,0.6)';
     sctx.lineWidth = 1.5;
     sctx.stroke();
 
-    // inner highlight
     hexPath(sctx, c.x, c.y, size - 5);
     sctx.strokeStyle = 'rgba(255,255,255,0.09)';
     sctx.lineWidth = 1;
     sctx.stroke();
 
+    // attackable highlight (pulsing red dashed border)
+    if (canAttack(p)){
+      const pulse = 0.35 + Math.sin(STRAT.pulse * 1.4) * 0.25;
+      hexPath(sctx, c.x, c.y, size - 3);
+      sctx.strokeStyle = `rgba(255,90,90,${pulse + 0.25})`;
+      sctx.lineWidth = 2.2;
+      sctx.setLineDash([5, 4]);
+      sctx.stroke();
+      sctx.setLineDash([]);
+    }
+
     // selection ring
     if (i === STRAT.selected){
+      const isAtk = canAttack(p);
+      const pulse = isAtk ? (0.7 + Math.sin(STRAT.pulse * 2) * 0.3) : 1;
       hexPath(sctx, c.x, c.y, size - 1.5);
-      sctx.strokeStyle = '#ffffff';
-      sctx.lineWidth = 3;
+      sctx.strokeStyle = isAtk ? `rgba(255,120,120,${pulse})` : '#ffffff';
+      sctx.lineWidth = isAtk ? 3.5 : 3;
       sctx.stroke();
     }
 
+    // enemy HQ flag
+    if (p.owner === 2 && p.col === ENEMY_HOME_COL){
+      sctx.font = Math.max(14, size*0.5) + 'px "Segoe UI Emoji","Apple Color Emoji",sans-serif';
+      sctx.textAlign = 'center';
+      sctx.textBaseline = 'middle';
+      sctx.fillStyle = 'rgba(0,0,0,0.6)';
+      sctx.fillText('⚑', c.x + 1, c.y - size*0.35 + 1);
+      sctx.fillStyle = '#ff5a5a';
+      sctx.fillText('⚑', c.x, c.y - size*0.35);
+    }
+
     drawProvinceBuildings(p, c.x, c.y, size);
+
+    if (p.owner !== 0 || p.garrison > 0){
+      sctx.fillStyle = 'rgba(0,0,0,0.65)';
+      sctx.font = 'bold ' + Math.max(9, size*0.28) + 'px "Segoe UI",sans-serif';
+      sctx.textAlign = 'right';
+      sctx.textBaseline = 'bottom';
+      sctx.fillText(Math.floor(p.garrison), c.x + size*0.55, c.y + size*0.55);
+    }
   }
 
   // booms
@@ -3086,7 +3240,6 @@ function renderStrategy(){
     sctx.fill();
   }
 
-  // nuke targeting overlay
   if (STRAT.nukeMode){
     sctx.fillStyle = 'rgba(255,60,60,0.10)';
     sctx.fillRect(0,0,W,H);
@@ -3109,25 +3262,9 @@ function renderStrategy(){
   }
   sctx.globalAlpha = 1;
 
-  // legend
-  sctx.textAlign = 'left';
-  sctx.font = 'bold 10px "Segoe UI",system-ui,sans-serif';
-  const lx = mapX, ly = mapY + availH + 22;
-  const legend = [
-    { c: playerHex, label: 'YOU' },
-    { c: enemyHex,  label: 'ENEMY' },
-    { c: allyHex,   label: 'ALLY' },
-    { c: neutralHex,label: 'NEUTRAL' },
-  ];
-  let lxx = lx;
-  for (const L of legend){
-    sctx.fillStyle = L.c;
-    sctx.fillRect(lxx, ly - 8, 10, 10);
-    sctx.strokeStyle = 'rgba(0,0,0,0.6)';
-    sctx.strokeRect(lxx, ly - 8, 10, 10);
-    sctx.fillStyle = '#7fa3c9';
-    sctx.fillText(L.label, lxx + 15, ly + 1);
-    lxx += 18 + sctx.measureText(L.label).width + 18;
+  function palColor(which){
+    const pal = getTerritoryPalette();
+    return which === 'player' ? pal.player : pal.enemy;
   }
 }
 
@@ -3142,7 +3279,7 @@ function loop(now){
   if (dt > 0.05) dt = 0.05;
   if (dt < 0) dt = 0;
 
-  if (mode === '2d'){
+  if (mode === '2d' || mode === 'survival'){
     update2D(dt);
     render2D();
   } else if (mode === '3d'){
@@ -3152,25 +3289,19 @@ function loop(now){
     updateStrategy(dt);
     renderStrategy();
   }
-
   requestAnimationFrame(loop);
 }
 
 window.addEventListener('resize', ()=>{
-  if (mode === '2d') resize2D();
+  if (mode === '2d' || mode === 'survival') resize2D();
   if (T && T.resize) T.resize();
   if (mode === 'strat') resizeStrategy();
 });
-
 window.addEventListener('keydown', e=>{
   if (e.code === 'Escape'){
-    if (!settingsModal.classList.contains('hidden')){
-      settingsModal.classList.add('hidden');
-    } else if (!shopModal.classList.contains('hidden')){
-      shopModal.classList.add('hidden');
-    } else if (mode){
-      exitToMenu();
-    }
+    if (!settingsModal.classList.contains('hidden')) settingsModal.classList.add('hidden');
+    else if (!shopModal.classList.contains('hidden')) shopModal.classList.add('hidden');
+    else if (mode) exitToMenu();
   }
 });
 
